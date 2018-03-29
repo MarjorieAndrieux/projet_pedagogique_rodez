@@ -1,0 +1,21 @@
+ #nav_bar {
+     background:  #000;
+     height: 16vh;
+} 
+
+#navbarTogglerDemo03 {
+	background: #000
+}
+
+#recherche {
+	margin-right: 60px;
+}
+
+.nav-link{
+	color: white;
+	margin-left: 50px;
+}
+
+#logo{
+	margin-left: 40px;
+}
