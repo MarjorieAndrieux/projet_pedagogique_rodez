@@ -44,26 +44,12 @@ body, html
     width: 2vw;
 }
 
-@media (max-width: 768px)
+/* A enlever du html pour la sémantique */
+/* #logo
 {
-#barre_recherche
-{
-    margin-left: 9vw;
-}
-
-#btn_recherche 
-{
-    margin-left: 30vw;
-}
-
-#img_btn_recherche
-{
-    width: 10vw;
-}
-
-}
-
-
+    width: 70px;
+    height: 70px;
+} */
 /* -----------------------------------------------Navbar----------------------------------------------- */
 
 #nav_bar {
@@ -82,4 +68,24 @@ body, html
 
 #logo{
 	margin-left: 40px;
+}
+
+/* -------------------------------Media-queries------------------------------------------------- */
+@media (max-width: 768px)
+{
+#barre_recherche
+{
+    margin-left: 9vw;
+}
+
+#btn_recherche 
+{
+    margin-left: 30vw;
+}
+
+#img_btn_recherche
+{
+    width: 10vw;
+}
+
 }
