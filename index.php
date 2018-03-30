@@ -17,17 +17,21 @@
     </div>
     <div class="row">
         <div class="col-md-6 col-xs-12 projets" id="projets_alea">
+            Cette partie affichera les projet terminés aléatoirement (sans tags impliqués dans leur affichage)
+            <br>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio mollitia corrupti nemo quidem id odio earum. Mollitia a autem voluptatem rem cumque magnam id enim labore. Magni   dolore iste et!
         </div>
         <div class="col-md-6 col-xs-12 projets" id="projets_tags">
+            Cette partie affichera les projets terminés correspondant aux tags de l'utilisateur connecté
+            <br>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat excepturi nesciunt adquia     ipsa illum animi harum fuga reiciendis minima sequi eligendi ab corrupti eiusnecessitatibus    in vero, recusandae consequatur?
         </div>
     </div>
 
     <div class="row" id="cont_aide_projets">
-        <div class="container">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, repellat reiciendis? Sed id quod    reprehenderit cupiditate reiciendis error, repudiandae quis exercitationem, ipsam odio consectetur     velit illo eos amet totam doloribus!
-        </div>
+        Cette partie affichera les projets ayant besoin de contributeurs
+        <br>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, repellat reiciendis? Sed id quod    reprehenderit cupiditate reiciendis error, repudiandae quis exercitationem, ipsam odio consectetur     velit illo eos amet totam doloribus!
     </div>
 
     <div class="row" id="cont_footer">
