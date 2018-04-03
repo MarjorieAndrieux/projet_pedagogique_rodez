@@ -4,7 +4,7 @@
 } 
 
 #navbarTogglerDemo03 {
-	background: #000
+	background: #000;
 }
 
 #recherche {
@@ -18,4 +18,30 @@
 
 #logo{
 	margin-left: 40px;
+}
+
+
+/*______________________________page profil________________________________________________*/
+
+#photoprofil{
+    height: 50%;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10vh;
+    
+}
+
+#global{
+    margin-top:2%;
+}
+
+.shadow{
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.11);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.11);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.11);
+}
+
+.card-marge{
+    margin-bottom: 2%;
 }

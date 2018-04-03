@@ -1,3 +1,4 @@
 $(function(){
-    $("#cont_navbar").load("navbar.html");
+    $(".cont_navbar").load("navbar.html");
   });
+
