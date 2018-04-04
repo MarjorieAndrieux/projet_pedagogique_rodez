@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    $Connect = mysqli_connect("localhost", "root", "greendayÉ(&&", "pp_rodez");
+    $Connect->query("SET NAMES UTF8");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +16,60 @@
     <title>Page profil</title>
 </head>
 <body>
+<!--____________________________Modale______________________________________________ -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modifier le profil</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+<!--____________________________Formulaire Modale______________________________________________ -->
+
+                    <form>
+                        <div class="form-group">
+                            <label for="pseudoprofil">Pseudo</label>
+                            <input type="text" class="form-control" id="pseudoprofil" aria-describedby="pseudoHelp" placeholder="Votre pseudo">
+                        </div>
+                        <div class="form-group">
+                            <label for="avatarprofil">Avatar</label>
+                            <input type="file" class="form-control-file" id="avatarprofil">
+                        </div>
+                        <div class="form-group">
+                            <label for="contribprofil">Besoin de contributeur</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="contribprofil" id="contribprofil" value="option1" checked>
+                                <label class="form-check-label" for="contribprofil">Oui</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="contribprofil" id="contribprofil2" value="option2">
+                                <label class="form-check-label" for="contribprofil2">Non</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="mailprofil">E-mail</label>
+                            <input type="email" class="form-control" id="mailprofil" aria-describedby="emailHelp" placeholder="Votre e-mail">
+                        </div>
+                        <div class="form-group">
+                            <label for="mdpprofil">Mot de passe</label>
+                            <input type="password" class="form-control" id="mdpprofil" placeholder="Votre mot de passe">
+                        </div>
+                        <div class="form-group">
+                            <label for="verifmdpprofil">Mot de passe</label>
+                            <input type="password" class="form-control" id="verifmdpprofil" placeholder="Retappez votre mot de passe">
+                        </div>   
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                    <button type="submit" class="btn btn-primary">Valider</button>
+                </div>
+            </div>
+        </div>
+    </div>
 <!--________________________________navbar_________________________________________-->
     <div class="container-fluid">
         <div class="row cont_navbar"></div>
@@ -27,7 +87,11 @@
                     <ul class="list-group list-group-flush align">
                         <li class="list-group-item alignement">Développeuse web junior</li>
                         <li class="list-group-item alignement">Tag Tag Tag Tag</li>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+                        Modifier profil
+                        </button>
                     </ul>
+
                 </div>
             </div>
 
