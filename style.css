@@ -11,12 +11,6 @@ body, html
     background-color: red;
 } */
 
-#navbarTogglerDemo03
-{
-	z-index: 2;
-	background: #000
-}
-
 .projets
 {
     height: 42vh;
@@ -44,12 +38,6 @@ body, html
     width: 2vw;
 }
 
-/* A enlever du html pour la sémantique */
-/* #logo
-{
-    width: 70px;
-    height: 70px;
-} */
 /* -----------------------------------------------Navbar----------------------------------------------- */
 
 #nav_bar {
@@ -68,6 +56,30 @@ body, html
 
 #logo{
 	margin-left: 40px;
+}
+/* A enlever du html pour la sémantique */
+/* #logo
+{
+    width: 70px;
+    height: 70px;
+} */
+
+#navbarTogglerDemo03
+{
+	z-index: 2;
+	background: #000
+}
+
+/* --------------------------------------Projets-------------------------------------------------- */
+.rangees_projets
+{
+    margin: 0 auto !important;
+    margin-top: 8vh !important;
+}
+
+.img_projets
+{
+    height: 25vh;
 }
 
 /* -------------------------------Media-queries------------------------------------------------- */
