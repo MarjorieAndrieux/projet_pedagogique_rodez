@@ -1,4 +1,46 @@
- #nav_bar {
+body, html
+{
+    margin: 0 auto;
+}
+
+/* -----------------------------------------Page accueil----------------------------------------- */
+
+/* #cont_navbar
+{
+    height: 16vh;
+    background-color: red;
+} */
+
+.projets
+{
+    height: 42vh;
+}
+
+#projets_tags
+{
+    background-color: lightblue;
+}
+
+#cont_aide_projets
+{
+    background-color: greenyellow;
+    height: 42vh;
+}
+
+#cont_footer
+{
+    height: 16vh;
+    background-color: red;
+}
+
+#img_btn_recherche
+{
+    width: 2vw;
+}
+
+/* -----------------------------------------------Navbar----------------------------------------------- */
+
+#nav_bar {
      background:  #000;
      height: 16vh;
 } 
@@ -19,6 +61,75 @@
 #logo{
 	margin-left: 40px;
 }
+/* A enlever du html pour la sémantique */
+/* #logo
+{
+    width: 70px;
+    height: 70px;
+} */
+
+#navbarTogglerDemo03
+{
+	z-index: 2;
+	background: #000
+}
+
+/* --------------------------------------Projets-------------------------------------------------- */
+.rangees_projets
+{
+    margin: 0 auto !important;
+    margin-top: 8vh !important;
+}
+
+.img_projets
+{
+    height: 25vh;
+}
+
+/* -------------------------------Media-queries------------------------------------------------- */
+@media (max-width: 768px)
+{
+#barre_recherche
+{
+    margin-left: 9vw;
+}
+
+#btn_recherche 
+{
+    margin-left: 30vw;
+}
+
+#img_btn_recherche
+{
+    width: 10vw;
+}
+
+}
+
+
+/*------------------------------------------Footer---------------------------------------------------*/
+
+/* .html {
+    position: relative;
+    min-height: 100%;
+} */
+ 
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background: #000000;
+}
+#lien_footer{
+
+	 display: flex;
+   justify-content: center;
+   align-items: center;
+   vertical-align: middle;
+   margin-top: 1vh;
+
+}	
 
 
 /*______________________________page profil________________________________________________*/
