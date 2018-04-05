@@ -85,8 +85,18 @@
             <div class="row">
                 <div class="col-md-4 col-sm-12 bg-light">
                     <div id="profil" class="card shadow">
-                        <img id="photoprofil" class="card-img-top" src="images/photo_profil.jpg" alt="Card image cap">
+
+<!--________________________________Php avatar card profil_________________________________________-->
+
+                    <?php
+                            $avatar_utilisateur=mysqli_query($connect, 
+                            "SELECT util_avatar FROM utilisateur WHERE util_email = 'andrieux.m@live.fr';");
+                            $resultat_avatar=mysqli_fetch_array($avatar_utilisateur);
+                    ?>
+                        <img id="photoprofil" class="card-img-top" src="<?php echo($resultat_avatar ['util_avatar']);?>" alt="Card image cap">
                         <div class="card-body">
+
+<!--________________________________Php info card profil_________________________________________-->
 
                         <?php
                             $identite_utilisateur=mysqli_query($connect, 
@@ -110,11 +120,9 @@
                             $description_utilisateur=mysqli_query($connect,"SELECT util_description FROM utilisateur
                             WHERE util_email='andrieux.m@live.fr';");
                             $resultat_description=mysqli_fetch_array($description_utilisateur);
-
-
                         ?>
-                            
- 
+
+<!--________________________________affichage bdd Card Profil_________________________________________-->
 
                         <h5 class="card-title"><?php echo($resultat_identite ['util_prenom']); echo($resultat_identite ['util_nom']);?></h5>
                         <p class="card-text"><?php echo($resultat_nbprojet ['nbprojet']);?>projets, 
@@ -122,7 +130,22 @@
                     </div>
                     <ul class="list-group list-group-flush align">
                         <li class="list-group-item alignement"><?php echo($resultat_description ['util_description']);?></li>
-                        <li class="list-group-item alignement">Tag Tag Tag Tag</li>
+
+<!--________________________________Php tags card profil_________________________________________-->
+
+                        <?php
+                            $tag_utilisateur=mysqli_query($connect,"SELECT tag_nom FROM tag_util INNER JOIN tag ON tag_util.tag_id=tag.tag_id
+                            INNER JOIN utilisateur ON tag_util.util_id=utilisateur.util_id WHERE util_nom='Andrieux';");
+                            while($resultat_tag=mysqli_fetch_array($tag_utilisateur)){
+                        ?>
+
+<!--________________________________affichage tags Card Profil_________________________________________-->
+
+                        <li class="list-group-item alignement"><?php echo($resultat_tag ['tag_nom']);?></li>
+                        <?php } ?>
+
+<!--________________________________Bouton modale modif Card Profil_________________________________________-->
+
                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
                         Modifier profil
                         </button>
