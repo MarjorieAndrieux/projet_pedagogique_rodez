@@ -1,7 +1,9 @@
 <?php
     session_start();
-    $Connect = mysqli_connect("localhost", "root", "greendayÉ(&&", "pp_rodez");
-    $Connect->query("SET NAMES UTF8");
+    $connect = mysqli_connect("localhost", "root", "greendayÉ(&&", "pp_rodez");
+    $connect->query("SET NAMES UTF8");
+    
+
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +38,7 @@
                         </div>
                         <div class="form-group">
                             <label for="avatarprofil">Avatar</label>
-                            <input type="file" class="form-control-file" id="avatarprofil">
+                            <input type="file" class="form-control-file" id="avatarprofil" accept="image/*">
                         </div>
                         <div class="form-group">
                             <label for="contribprofil">Besoin de contributeur</label>
@@ -74,18 +76,52 @@
     <div class="container-fluid">
         <div class="row cont_navbar"></div>
 
+
 <!--________________________________Card Profil_________________________________________-->
+
+
+
     <div id="global" class="container-fluid">
             <div class="row">
                 <div class="col-md-4 col-sm-12 bg-light">
                     <div id="profil" class="card shadow">
                         <img id="photoprofil" class="card-img-top" src="images/photo_profil.jpg" alt="Card image cap">
                         <div class="card-body">
-                        <h5 class="card-title">Marjorie Andrieux</h5>
-                        <p class="card-text">6 projets, 10 contrib</p>
+
+                        <?php
+                            $identite_utilisateur=mysqli_query($connect, 
+                            "SELECT util_nom, util_prenom FROM utilisateur WHERE util_email = 'andrieux.m@live.fr';");
+                            $resultat_identite=mysqli_fetch_array($identite_utilisateur);
+
+                            $nbprojet_utilisateur=mysqli_query($connect, 
+                            "SELECT COUNT(*) AS nbprojet FROM projet INNER JOIN utilisateur ON projet.util_id=utilisateur.util_id
+                            WHERE util_email='andrieux.m@live.fr';");
+                            $resultat_nbprojet=mysqli_fetch_array($nbprojet_utilisateur);
+
+                            $nbcontrib_utilisateur=mysqli_query($connect,"SELECT COUNT(*) AS nbcontrib FROM contribution
+                            INNER JOIN utilisateur ON contribution.util_id=utilisateur.util_id
+                            WHERE util_email='andrieux.m@live.fr';");
+                            $resultat_nbcontrib=mysqli_fetch_array($nbcontrib_utilisateur);
+                            
+                            $description_utilisateur=mysqli_query($connect,"SELECT util_description FROM utilisateur
+                            WHERE util_email='andrieux.m@live.fr';");
+                            $resultat_description=mysqli_fetch_array($description_utilisateur);
+
+                            $description_utilisateur=mysqli_query($connect,"SELECT util_description FROM utilisateur
+                            WHERE util_email='andrieux.m@live.fr';");
+                            $resultat_description=mysqli_fetch_array($description_utilisateur);
+
+
+                        ?>
+                            
+ 
+
+                        <h5 class="card-title"><?php echo($resultat_identite ['util_prenom']); echo($resultat_identite ['util_nom']);?></h5>
+                        <p class="card-text"><?php echo($resultat_nbprojet ['nbprojet']);?>projets, 
+                        <?php echo($resultat_nbcontrib ['nbcontrib']);?> contribution</p>
                     </div>
                     <ul class="list-group list-group-flush align">
-                        <li class="list-group-item alignement">Développeuse web junior</li>
+                        <li class="list-group-item alignement"><?php echo($resultat_description ['util_description']);?></li>
                         <li class="list-group-item alignement">Tag Tag Tag Tag</li>
                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
                         Modifier profil
@@ -94,6 +130,17 @@
 
                 </div>
             </div>
+
+
+
+
+
+
+
+
+
+
+
 
 <!--________________________________Card Projet_________________________________________-->
             <div class="col-md-8 col-sm-12 bg-light">
