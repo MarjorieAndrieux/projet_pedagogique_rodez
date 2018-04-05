@@ -45,6 +45,10 @@ body, html
      height: 16vh;
 } 
 
+#navbarTogglerDemo03 {
+	background: #000;
+}
+
 #recherche {
 	margin-right: 60px;
 }
@@ -105,10 +109,10 @@ body, html
 
 /*------------------------------------------Footer---------------------------------------------------*/
 
-.html {
+/* .html {
     position: relative;
     min-height: 100%;
-}
+} */
  
 .footer {
     position: absolute;
@@ -126,3 +130,29 @@ body, html
    margin-top: 1vh;
 
 }	
+
+
+/*______________________________page profil________________________________________________*/
+
+#photoprofil{
+    height: 50%;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10vh;
+    
+}
+
+#global{
+    margin-top:2%;
+}
+
+.shadow{
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.11);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.11);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.11);
+}
+
+.card-marge{
+    margin-bottom: 2%;
+}

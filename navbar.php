@@ -23,7 +23,3 @@
         </div>
     </nav>
 </div>
-
-
-<!-- Modale création projet -->
-<div class="modal fade" id="crea_projet" tabindex="-1"
