@@ -27,12 +27,6 @@ body, html
     height: 42vh;
 }
 
-#cont_footer
-{
-    height: 16vh;
-    background-color: red;
-}
-
 #img_btn_recherche
 {
     width: 2vw;
@@ -109,11 +103,6 @@ body, html
 
 /*------------------------------------------Footer---------------------------------------------------*/
 
-/* .html {
-    position: relative;
-    min-height: 100%;
-} */
- 
 .footer {
     position: absolute;
     bottom: 0;

@@ -12,8 +12,6 @@
 <!-- Ne faites pas attention aux couleurs elles sont moches c'est juste histoire de travailler sur les div, nous n'avons pas encore trouvé de charte graphique -->
 <div class="container-fluid">
     <div class="row cont_navbar">
-    <!-- cette div récupère le fichier navbar.html et la charge grâce à un appel en js -->
-        <!-- <p>Ce texte a pour but de 'remplacer' l'espace pris par la navbar</p> -->
         <?php include("navbar.php"); ?>
     </div>
     <div class="row">
@@ -36,7 +34,7 @@
     </div>
 
     <div class="row" id="cont_footer">
-        
+        <?php include("footer.html")?>
     </div>
 
 </div>
