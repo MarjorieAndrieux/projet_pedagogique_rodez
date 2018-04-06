@@ -16,6 +16,11 @@ body, html
     height: 42vh;
 }
 
+#projets_alea
+{
+    background-color: lightseagreen;
+}
+
 #projets_tags
 {
     background-color: lightblue;
@@ -30,6 +35,11 @@ body, html
 #img_btn_recherche
 {
     width: 2vw;
+}
+
+.carousel
+{
+    width: 100%;
 }
 
 /* -----------------------------------------------Navbar----------------------------------------------- */
