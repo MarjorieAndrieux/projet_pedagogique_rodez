@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $connect = mysqli_connect("localhost", "root", "Elpinus09", "pp_rodez");
+    $connect = mysqli_connect("localhost", "root", "greendayÉ(&&", "pp_rodez");
     $connect->query("SET NAMES UTF8");
     
 
@@ -22,8 +22,8 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modifier le profil</h5>
+                <div class="modal-header bg-danger">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Modifier le profil</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -31,43 +31,64 @@
                 <div class="modal-body">
 <!--____________________________Formulaire Modale______________________________________________ -->
 
-                    <form>
+                    <form method="post">
+
+                    <?php
+                        if(isset($_POST['validation'])){
+                            $pseudo_form = $_POST["pseudo"];
+                            $avatar_form = $_POST["avatar"];
+                            $notif_form = $_POST["notif"];
+                            $mail_form = $_POST["mail"];
+                            $mdp1_form = $_POST["mdp1"];
+                            $mdp2_form = $_POST["mdp2"];
+
+                            $modification_utilisateur=mysqli_query($connect, 
+                            "UPDATE utilisateur SET util_pseudo='".$pseudo_form."', util_avatar='".$avatar_form."', util_notif='".$notif_form."', util_email='".$mail_form."', util_mdp='".$mdp2_form."' WHERE util_email='andrieux.m@live.fr';");
+                            $resultat_modification=mysqli_fetch_array($modification_utilisateur);
+                            if($modification_utilisateur == true){
+                            echo "c'est good";
+                            }else{
+                                echo "pas bon";
+                             }
+                         }
+                    ?>
+
                         <div class="form-group">
                             <label for="pseudoprofil">Pseudo</label>
-                            <input type="text" class="form-control" id="pseudoprofil" aria-describedby="pseudoHelp" placeholder="Votre pseudo">
+                            <input type="text" class="form-control" id="pseudoprofil" name="pseudo" aria-describedby="pseudoHelp" placeholder="Votre pseudo">
                         </div>
                         <div class="form-group">
                             <label for="avatarprofil">Avatar</label>
-                            <input type="file" class="form-control-file" id="avatarprofil" accept="image/*">
+                            <input type="file" class="form-control-file" id="avatarprofil" name="avatar" accept="image/*">
                         </div>
                         <div class="form-group">
-                            <label for="contribprofil">Besoin de contributeur</label>
+                            <label for="contribprofil">Notifications</label>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="contribprofil" id="contribprofil" value="option1" checked>
+                                <input class="form-check-input" type="radio" name="notif" value="1" id="contribprofil" value="option1" checked>
                                 <label class="form-check-label" for="contribprofil">Oui</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="contribprofil" id="contribprofil2" value="option2">
+                                <input class="form-check-input" type="radio" name="notif" value="0"id="contribprofil2" value="option2">
                                 <label class="form-check-label" for="contribprofil2">Non</label>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="mailprofil">E-mail</label>
-                            <input type="email" class="form-control" id="mailprofil" aria-describedby="emailHelp" placeholder="Votre e-mail">
+                            <input type="email" class="form-control" id="mailprofil" name="mail" aria-describedby="emailHelp" placeholder="Votre e-mail">
                         </div>
                         <div class="form-group">
-                            <label for="mdpprofil">Mot de passe</label>
-                            <input type="password" class="form-control" id="mdpprofil" placeholder="Votre mot de passe">
+                            <label for="mdpprofil">Ancien mot de passe</label>
+                            <input type="password" class="form-control" id="mdpprofil" name="mdp1" placeholder="Votre ancien mot de passe">
                         </div>
                         <div class="form-group">
-                            <label for="verifmdpprofil">Mot de passe</label>
-                            <input type="password" class="form-control" id="verifmdpprofil" placeholder="Retappez votre mot de passe">
+                            <label for="verifmdpprofil">Nouveau mot de passe</label>
+                            <input type="password" class="form-control" id="verifmdpprofil" name="mdp2" placeholder="Votre nouveau mot de passe">
                         </div>   
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                    <button type="submit" class="btn btn-primary">Valider</button>
+                    <button type="submit" name="validation" class="btn btn-danger">Valider</button>
                 </div>
             </div>
         </div>
@@ -147,107 +168,75 @@
 <!--________________________________Bouton modale modif Card Profil_________________________________________-->
 
                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-                        Modifier profil
+                            Modifier profil
                         </button>
                     </ul>
-
                 </div>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
 <!--________________________________Card Projet_________________________________________-->
             <div class="col-md-8 col-sm-12 bg-light">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="card-deck card-marge">
-        
-<!--________________________________Card Projet 1_________________________________________-->
-
-                            <div class="card shadow">
-                                <img class="card-img-top" src="images/fond4.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                </div>
+                <div class='card'> 
+                    <div class='card-body'> 
+                        <div class='card-deck card-marge'>
+                        <?php
+                        //On initialise nos compteurs, i correspond au quotient du nombre de projets /4, j correspond a un compteur qui va tourner entre 0 et 4.
+                            $i = 0;
+                            $j=0;
+                        //On récupère les infos voulues (ici toutes on selectionnera celle qui nous interessent plus tard)
+                            $req_projets=mysqli_query($connect, "SELECT * FROM projet ORDER BY pro_date");
+                        //On fait un COUNT pour pouvoir récupérer un quotient sur i
+                            $nbre_proj=mysqli_query($connect, "SELECT COUNT(*) FROM projet");
+                            $nbr_proj=mysqli_fetch_array($nbre_proj);
+                            $i=ceil($nbr_proj[0]/4);
+                        //m servira pour la dernière rangée
+                            $m=$nbr_proj[0]%4;
+                        //On boucle jusqu'a ce qu'on arrive à la dernière rangée
+                            while ($i>1)
+                            {
+                        //On créé des rangées une fois que 4 projets ont été placés sur la précédente
+                            echo "<div class='row rangees_projets'>";
+                            for ($j=0; $j<4 ; $j++) 
+                            { 
+                            $ligne=mysqli_fetch_row($req_projets);
+                            echo "<div class='card shadow' id='projet_".$ligne[0]."'>
+                            <img class='card-img-top img_projets' src='".$ligne[3]."'alt='Image décrivant le projet'>
+                            <div class='card-body'>
+                                <h5 class='card-title'>".$ligne[1]."</h5>
+                                <p class='card-text'>".$ligne[2]."</p>
                             </div>
-
-<!--________________________________Card Projet 2_________________________________________-->
-
-                            <div class="card shadow">
-                                <img class="card-img-top" src="images/fond1.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</>
-                                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                </div>
+                            </div>";
+                            }
+                            $i--;
+                            echo "</div>";
+                            };
+                            //On est sur la dernière rangée, on créé donc un dernier row
+                            echo "
+                            <div class='row rangees_projets'>";
+                            //Si jamais on est sur un multiple de 4, on change la valeur de m afin qu'on puisse afficher la dernière rangée
+                            if ($m==0)
+                            {
+                            $m=4;
+                            }
+                            //le $m (modulo de la division) est la pour nous indiquer combien de cartes on va créer, ici la valeur de m alternera entre 1 et 3. 
+                            for ($j=0; $j<$m ; $j++) 
+                            { 
+                            $ligne=mysqli_fetch_row($req_projets);
+                            echo "<div class='card shadow' id='projet_".$ligne[0]."'>
+                            <img class='card-img-top img_projets' src='".$ligne[3]."'alt='Image décrivant le projet'>
+                            <div class='card-body'>
+                                <h5 class='card-title'>".$ligne[1]."</h5>
+                                <p class='card-text'>".$ligne[2]."</p>
                             </div>
-                        
-<!--________________________________Card Projet 3_________________________________________-->
-
-                            <div class="card shadow">
-                                <img class="card-img-top" src="images/fond2.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                </div>
-                                
-                            </div>
-                        </div>
-                        <div class="card-deck card-marge">
-                        
-<!--________________________________Card Projet 4_________________________________________-->
-
-                            <div class="card shadow">
-                                <img class="card-img-top" src="images/fond3.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                </div>
-                            </div>
-
-<!--________________________________Card Projet 5_________________________________________-->
-
-                            <div class="card shadow">
-                                <img class="card-img-top" src="images/fond5.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</>
-                                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                </div>
-                            </div>
-
-<!--________________________________Card Projet 6_________________________________________-->
-
-                            <div class="card shadow">
-                                <img class="card-img-top" src="images/fond6.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                </div>
-                                
-                            </div>
+                            </div>";
+                            }
+                            echo "</div>";
+                            ?>
                         </div>
                     </div>
-                </div>
+                 </div>
             </div>
-
-            
-
-                
+    </div>
+</div>          
 
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
