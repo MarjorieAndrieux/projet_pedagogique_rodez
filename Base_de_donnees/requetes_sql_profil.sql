@@ -63,8 +63,4 @@ WHERE util_email='andrieux.m@live.fr';
 DELETE FROM commentaire
 WHERE comm_id=1;
 
-/*affichage commentaires*/
-SELECT comm_comment, comm_util_id_dest, comm_util_id_exp
-FROM commentaire
-WHERE comm_util_id_dest='1';
 
