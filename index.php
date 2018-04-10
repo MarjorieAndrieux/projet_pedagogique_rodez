@@ -34,7 +34,7 @@
     </div>
 
     <div class="row" id="cont_footer">
-        <?php include("footer.html"); ?>
+        <?php include("footer.php"); ?>
     </div>
 
 </div>
