@@ -14,7 +14,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="main.css">
     <title>Page profil</title>
 </head>
 <body>
@@ -95,7 +94,9 @@
     </div>
 <!--________________________________navbar_________________________________________-->
     <div class="container-fluid">
-        <div class="row cont_navbar"></div>
+        <div class="row">
+            <?php include("navbar.php") ?>
+        </div>
 
 
 <!--________________________________Card Profil_________________________________________-->
@@ -172,7 +173,25 @@
                         </button>
                     </ul>
                 </div>
+
+<!--________________________________Card commentaires_________________________________________-->
+
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+
+                        <?php
+                            $commentaire_utilisateur=mysqli_query($connect, 
+                            "SELECT comm_comment, comm_util_id_dest, comm_util_id_exp
+                            FROM commentaire WHERE comm_util_id_dest='1';");
+                            $resultat_commentaire=mysqli_fetch_array($commentaire_utilisateur);
+                        ?>
+                        <li class="list-group-item">
+                            <?php echo($resultat_commentaire ['comm_comment']);?>
+                        </li>
+                    </ul>
+                </div>
             </div>
+
 <!--________________________________Card Projet_________________________________________-->
             <div class="col-md-8 col-sm-12 bg-light">
                 <div class='card'> 
