@@ -106,7 +106,7 @@
     <div id="global" class="container-fluid">
             <div class="row">
                 <div class="col-md-4 col-sm-12 bg-light">
-                    <div id="profil" class="card shadow">
+                    <div id="profil" class="card mt-4 shadow">
 
 <!--________________________________Php avatar card profil_________________________________________-->
 
@@ -126,19 +126,15 @@
                             $resultat_identite=mysqli_fetch_array($identite_utilisateur);
 
                             $nbprojet_utilisateur=mysqli_query($connect, 
-                            "SELECT COUNT(*) AS nbprojet FROM projet INNER JOIN utilisateur ON projet.util_id=utilisateur.util_id
+                            "SELECT COUNT(*) AS nbprojet FROM projet INNER JOIN utilisateur ON projet.pro_util_id=utilisateur.util_id
                             WHERE util_email='andrieux.m@live.fr';");
                             $resultat_nbprojet=mysqli_fetch_array($nbprojet_utilisateur);
 
                             $nbcontrib_utilisateur=mysqli_query($connect,"SELECT COUNT(*) AS nbcontrib FROM contribution
-                            INNER JOIN utilisateur ON contribution.util_id=utilisateur.util_id
+                            INNER JOIN utilisateur ON contribution.contrib_util_id=utilisateur.util_id
                             WHERE util_email='andrieux.m@live.fr';");
                             $resultat_nbcontrib=mysqli_fetch_array($nbcontrib_utilisateur);
                             
-                            $description_utilisateur=mysqli_query($connect,"SELECT util_description FROM utilisateur
-                            WHERE util_email='andrieux.m@live.fr';");
-                            $resultat_description=mysqli_fetch_array($description_utilisateur);
-
                             $description_utilisateur=mysqli_query($connect,"SELECT util_description FROM utilisateur
                             WHERE util_email='andrieux.m@live.fr';");
                             $resultat_description=mysqli_fetch_array($description_utilisateur);
@@ -157,7 +153,7 @@
 
                         <?php
                             $tag_utilisateur=mysqli_query($connect,"SELECT tag_nom FROM tag_util INNER JOIN tag ON tag_util.tag_id=tag.tag_id
-                            INNER JOIN utilisateur ON tag_util.util_id=utilisateur.util_id WHERE util_nom='Andrieux';");
+                            INNER JOIN utilisateur ON tag_util.tag_util_id=utilisateur.util_id WHERE util_nom='Andrieux';");
                             while($resultat_tag=mysqli_fetch_array($tag_utilisateur)){
                         ?>
 
@@ -176,27 +172,43 @@
 
 <!--________________________________Card commentaires_________________________________________-->
 
-                <div class="card">
+                <div class="card mt-4 shadow">
+                    <form method="post">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Votre commentaire</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <button type="submit" class="btn btn-danger">Envoyer</button>
+                            </div>
+                        </div>
+                    </form>
                     <ul class="list-group list-group-flush">
 
                         <?php
                             $commentaire_utilisateur=mysqli_query($connect, 
-                            "SELECT comm_comment, comm_util_id_dest, comm_util_id_exp
-                            FROM commentaire WHERE comm_util_id_dest='1';");
+                            "SELECT comm_comment, util_pseudo FROM utilisateur
+                            INNER JOIN commentaire ON utilisateur.util_id=commentaire.comm_util_id_dest
+                            where util_email='andrieux.m@live.fr';");
                             $resultat_commentaire=mysqli_fetch_array($commentaire_utilisateur);
                         ?>
                         <li class="list-group-item">
+                            <h4><?php echo($resultat_commentaire ['util_pseudo']); ?>:</h4>
                             <?php echo($resultat_commentaire ['comm_comment']);?>
                         </li>
                     </ul>
                 </div>
             </div>
 
+
+
+
+
+
 <!--________________________________Card Projet_________________________________________-->
             <div class="col-md-8 col-sm-12 bg-light">
-                <div class='card'> 
+                <div class='card mt-4'> 
                     <div class='card-body'> 
-                        <div class='card-deck card-marge'>
+                        <div class='card-deck'>
                         <?php
                         //On initialise nos compteurs, i correspond au quotient du nombre de projets /4, j correspond a un compteur qui va tourner entre 0 et 4.
                             $i = 0;
