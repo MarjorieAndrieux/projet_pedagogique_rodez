@@ -5,7 +5,7 @@ $(document).ready(function(){
         items:3,
         loop:true,
         center:true,
-        nav:true,
+        nav:false,
         rewind:false,
         lazyLoad:true,
         autoplay:true,

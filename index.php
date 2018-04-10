@@ -82,20 +82,22 @@ $connect->query("set names UTF8");
             <div class="col-md-6 col-xs-12 projets" id="projets_alea">
                 <!-- Cette partie affichera les projet terminés aléatoirement (sans tags impliqués dans leur    affichage) -->
                 <?php $req_projets=mysqli_query($connect, "SELECT * FROM projet ORDER BY pro_date LIMIT 10");
-                // $i=0; ?>
-                <div class="owl-carousel loop">
+                ?>
+                <div class="owl-carousel">
                     <?php  while($ligne=mysqli_fetch_row($req_projets))
                     {
                         echo '
-                        <div> <img src="'.$ligne[3].'" class="img_owl"> <h3>'.$ligne[1].'</h3> </div>
-                        ';
-                        // $i++;                    
+                        <div> <img src="'.$ligne[3].'" class="img_owl"> <h3>'.$ligne[1].'</h3> </div>';
                     }
                     ?>
                 </div>
             </div>
             <div class="col-md-6 col-xs-12 projets" id="projets_tags">
                 <!-- Cette partie affichera les projets terminés correspondant aux tags de l'utilisateur connecté -->
+                <?php $req_projets_tags=mysqli_query($connect, "SELECT * FROM projet ORDER BY pro_date LIMIT 10 WHERE ");
+                ?>
+                <div class="owl-carousel">
+                </div>
             </div>
         </div>
 
