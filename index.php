@@ -81,6 +81,7 @@ $connect->query("set names UTF8");
         <div class="row">
             <div class="col-md-6 col-xs-12 projets" id="projets_alea">
                 <!-- Cette partie affichera les projet terminés aléatoirement (sans tags impliqués dans leur    affichage) -->
+                <h3 class="center">Derniers projets postés</h3>
                 <?php $req_projets=mysqli_query($connect, "SELECT * FROM projet ORDER BY pro_date LIMIT 10");
                 ?>
                 <div class="owl-carousel">
@@ -94,17 +95,37 @@ $connect->query("set names UTF8");
             </div>
             <div class="col-md-6 col-xs-12 projets" id="projets_tags">
                 <!-- Cette partie affichera les projets terminés correspondant aux tags de l'utilisateur connecté -->
-                <?php $req_projets_tags=mysqli_query($connect, "SELECT * FROM projet ORDER BY pro_date LIMIT 10 WHERE ");
+                <!-- Cette requête est à changer lors du dernier WHERE pour pouvoir avoir les tags qui s'adaptent a l'utilisateur -->
+                <h3>Projets liés à vos tags</h3>
+                <?php $req_projets_tags=mysqli_query($connect, "SELECT DISTINCT pro_nom, pro_image FROM tag_pro INNER JOIN tag_util ON tag_pro.tag_id = tag_util.tag_id INNER JOIN projet ON tag_pro_id = pro_id WHERE tag_util.tag_util_id = 1 ");
                 ?>
                 <div class="owl-carousel">
+                <?php  while($ligne_tag=mysqli_fetch_row($req_projets_tags))
+                    {
+                        echo '
+                        <div> <img src="'.$ligne_tag[1].'" class="img_owl"> <h3>'.$ligne_tag[0].'</h3> </div>';
+                    }
+                    ?>
                 </div>
             </div>
         </div>
 
         <div class="row" id="cont_aide_projets">
-            Cette partie affichera les projets ayant besoin de contributeurs
-            <br>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, repellat reiciendis? Sed id quod     reprehenderit cupiditate reiciendis error, repudiandae quis exercitationem, ipsam odio  consectetur     velit illo eos amet totam doloribus!
+            <div class="col">
+                <h3>Projets recherchant des contributeurs : </h3>
+                <?php $req_projets_contrib=mysqli_query($connect, "SELECT * FROM `projet` WHERE pro_statut = 1 ORDER BY pro_date LIMIT 20 "); 
+                ?>
+                <div class="owl-carousel owl-contrib">
+                <?php while($ligne_contrib=mysqli_fetch_row($req_projets_contrib))
+                    {
+                        echo '
+                        <div> <img src="'.$ligne_contrib[3].'" class="img_owl"> <h3>'.$ligne_contrib[1].'</h3> </div>';
+                    } 
+                ?>
+                <?php $modification_utilisateur=mysqli_query($connect,
+                           "UPDATE utilisateur SET util_pseudo='".$pseudo_form."', util_avatar='".$avatar_form."', util_notif='".$notif_form."', util_email='".$mail_form."', util_mdp='".$mdp2_form."' WHERE util_email='andrieux.m@live.fr';"); ?>
+                </div>
+            </div>
         </div>
 
         <div class="row" id="cont_footer">

@@ -23,3 +23,29 @@ $(document).ready(function(){
         }
     })
 });
+
+$(document).ready(function(){
+    $(".owl-contrib").owlCarousel(
+    {
+        center: true,
+        items:6,
+        loop:true,
+        center:true,
+        nav:false,
+        rewind:false,
+        lazyLoad:true,
+        autoplay:true,
+        autoplayHoverPause:true,
+        responsive:{
+            576:{
+                items:1
+            },
+            768:{
+                items:2
+            },
+            992:{
+                items:3
+            }
+        }
+    })
+});
