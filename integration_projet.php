@@ -1,28 +1,7 @@
-<?php
-$connect=mysqli_connect("localhost", "root", "greendayÉ(&&", "pp_rodez");
-$connect->query("set names UTF8");
-
-?>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Projets</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-</head>
-<body>
-<div class="container-fluid">
-    <div class="row">
-        <?php include("navbar.php") ?>
-    </div>
-    <div class="row">
-        <div class='card'> 
-            <div class='card-body'> 
-                <div class='card-deck card-marge'>
+<div class="row">
+    <div class='card'> 
+        <div class='card-body'> 
+            <div class='card-deck card-marge'>
                 <?php
                 //On initialise nos compteurs, i correspond au quotient du nombre de projets /4, j correspond a un compteur qui va tourner entre 0 et 4.
                 $i = 0;
@@ -79,18 +58,7 @@ $connect->query("set names UTF8");
                     }
                     echo "</div>";
                 ?>
-                </div>
-            </div>
+            </div>    
         </div>
     </div>
-
-
-    
 </div>
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="js/main.js"></script>
-</body>
-</html>

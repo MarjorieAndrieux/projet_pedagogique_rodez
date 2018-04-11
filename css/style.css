@@ -16,6 +16,11 @@ body, html
     height: 42vh;
 }
 
+#projets_alea
+{
+    background-color: lightseagreen;
+}
+
 #projets_tags
 {
     background-color: lightblue;
@@ -24,12 +29,19 @@ body, html
 #cont_aide_projets
 {
     background-color: greenyellow;
-    height: 42vh;
 }
 
 #img_btn_recherche
 {
     width: 2vw;
+}
+
+/* L'emploi de cette classe est une solution peu sure a mon avis car il se peut que le redimensionnement de l'image de cette façon donne dans quelques cas des images moches, mais le redimensionnement en php est assez compliqué je préfère me pencher sur autre chose et revenir la dessus si on a le temps */
+.img_owl
+{
+    /* la width est d'origine de 100% ce qui n'est pas dérangeant */
+    /* width: 5vw; */
+    height: 25vh;
 }
 
 /* -----------------------------------------------Navbar----------------------------------------------- */
@@ -98,13 +110,17 @@ body, html
     width: 10vw;
 }
 
+.projets 
+{
+    height: 55vh;
+}
+
 }
 
 
 /*------------------------------------------Footer---------------------------------------------------*/
 
 .footer {
-    position: absolute;
     width: 100%;
     height: 60px;
     background: #000000;
