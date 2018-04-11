@@ -84,7 +84,7 @@ $connect->query("set names UTF8");
                 <h3 class="center">Derniers projets postés</h3>
                 <?php $req_projets=mysqli_query($connect, "SELECT * FROM projet ORDER BY pro_date LIMIT 10");
                 ?>
-                <div class="owl-carousel">
+                <div class="owl-carousel owl-proj owl-theme">
                     <?php  while($ligne=mysqli_fetch_row($req_projets))
                     {
                         echo '
@@ -99,7 +99,7 @@ $connect->query("set names UTF8");
                 <h3>Projets liés à vos tags</h3>
                 <?php $req_projets_tags=mysqli_query($connect, "SELECT DISTINCT pro_nom, pro_image FROM tag_pro INNER JOIN tag_util ON tag_pro.tag_id = tag_util.tag_id INNER JOIN projet ON tag_pro_id = pro_id WHERE tag_util.tag_util_id = 1 ");
                 ?>
-                <div class="owl-carousel">
+                <div class="owl-carousel owl-proj owl-theme">
                 <?php  while($ligne_tag=mysqli_fetch_row($req_projets_tags))
                     {
                         echo '
@@ -111,11 +111,11 @@ $connect->query("set names UTF8");
         </div>
 
         <div class="row" id="cont_aide_projets">
-            <div class="col">
+            <div class="col projets">
                 <h3>Projets recherchant des contributeurs : </h3>
                 <?php $req_projets_contrib=mysqli_query($connect, "SELECT * FROM `projet` WHERE pro_statut = 1 ORDER BY pro_date LIMIT 20 "); 
                 ?>
-                <div class="owl-carousel owl-contrib">
+                <div class="owl-carousel owl-theme" id="owl-contrib">
                 <?php while($ligne_contrib=mysqli_fetch_row($req_projets_contrib))
                     {
                         echo '

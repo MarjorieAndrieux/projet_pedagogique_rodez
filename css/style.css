@@ -29,7 +29,6 @@ body, html
 #cont_aide_projets
 {
     background-color: greenyellow;
-    height: 42vh;
 }
 
 #img_btn_recherche
@@ -111,14 +110,17 @@ body, html
     width: 10vw;
 }
 
+.projets 
+{
+    height: 55vh;
+}
+
 }
 
 
 /*------------------------------------------Footer---------------------------------------------------*/
 
 .footer {
-    position: absolute;
-    bottom: 0;
     width: 100%;
     height: 60px;
     background: #000000;
