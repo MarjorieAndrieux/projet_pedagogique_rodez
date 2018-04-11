@@ -14,7 +14,7 @@
       </div>
       <div class="modal-body">
         
-         <form method="post">
+         <form method="post" action="index.php">
                         <div class="form-group">
                             <label for="mailinscription">E-mail</label>
                             <input type="email" class="form-control" id="mailinscription" name="mail" aria-describedby="emailHelp" placeholder="Votre e-mail">
@@ -27,7 +27,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-        <button type="button" class="btn btn-primary">Valider</button>
+        <input type="button" class="btn btn-primary">Valider</button>
       </div>
     </div>
   </div>
@@ -57,7 +57,7 @@
                             <label for="mdpconnexion">Mot de passe</label>
                             <input type="password" class="form-control" id="mdpconnexion" name="mdp1" placeholder="Votre mot de passe">
                         </div>  
-                    </form>
+                    
                 </div>
                 <div class="modal-footer">
                    <!--  bouton mot de passe oublié dans la modal connexion-->
@@ -66,6 +66,7 @@
 
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
                     <button type="submit" name="validation" class="btn btn-primary">Valider</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -162,9 +163,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Profil</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="#">Explorer</a>
-                </li>
+                </li> -->
 
                 <li class="nav-item">
                     <a  class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal0">

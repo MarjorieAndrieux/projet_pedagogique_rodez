@@ -1,6 +1,20 @@
 <?php
+//On démarre la session pour pouvoir se servir des informations des cookies plus tard
+session_start();
+
+//La variable mail_cookie nous servira a récupérer le mail de l'utilisateur pour pouvoir l'identifier et s'y référer pendant sa navigation sur le site
+$mail_cookie=$_POST['mail'];
+//Définition cookie : d'abord on a le nom du cookie (ici cookie_mail) ensuite on appelle la variable qui va lui donner sa valeur, ensuite on définit sa durée de vie (ici 1 mois) et les arguments finaux servent à ajouter un peu de sécurité (le null null false je ne sais pas ce qu'ils font mais le true sert à activer le mode httpOnly)
+setcookie('cookie_mail',$mail_cookie,time()+31*24*3600,null,null,false,true);
+
 $connect= mysqli_connect("localhost", "root", "Elpinus09", "pp_rodez");
 $connect->query("set names UTF8");
+
+// if(isset($mail_cookie))
+// {
+//     header('Location : index.php');
+// }
+
 ?>
 
 <!DOCTYPE html>
@@ -24,18 +38,19 @@ $connect->query("set names UTF8");
         </div>
         <div class="row">
             <div class="col-md-6 col-xs-12 projets" id="projets_alea">
+                <?php echo $_COOKIE['cookie_mail']; ?>
                 <!-- Cette partie affichera les projet terminés aléatoirement (sans tags impliqués dans leur    affichage) -->
-                <h3 class="center">Derniers projets postés</h3>
-                <?php $req_projets=mysqli_query($connect, "SELECT * FROM projet ORDER BY pro_date LIMIT 10");
+                <!-- <h3 class="center">Derniers projets postés</h3> -->
+                <?php //$req_projets=mysqli_query($connect, "SELECT * FROM projet ORDER BY pro_date LIMIT 10");
                 ?>
-                <div class="owl-carousel owl-proj owl-theme">
-                    <?php  while($ligne=mysqli_fetch_row($req_projets))
-                    {
-                        echo '
-                        <div> <img src="'.$ligne[3].'" class="img_owl"> <h3>'.$ligne[1].'</h3> </div>';
-                    }
+                <!-- <div class="owl-carousel owl-proj owl-theme"> -->
+                    <?php  //while($ligne=mysqli_fetch_row($req_projets))
+                    //{
+                    //    echo '
+                    //    <div> <img src="'.$ligne[3].'" class="img_owl"> <h3>'.$ligne[1].'</h3> </div>';
+                    //}
                     ?>
-                </div>
+                <!-- </div> -->
             </div>
             <div class="col-md-6 col-xs-12 projets" id="projets_tags">
                 <!-- Cette partie affichera les projets terminés correspondant aux tags de l'utilisateur connecté -->
