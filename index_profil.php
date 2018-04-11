@@ -30,7 +30,7 @@
                 <div class="modal-body">
 <!--____________________________Formulaire Modale______________________________________________ -->
 
-                    <form method="post">
+                    <form method="post" action="index_profil.php">
 
                     <?php
                         if(isset($_POST['validation'])){
@@ -42,7 +42,8 @@
                             $mdp2_form = $_POST["mdp2"];
 
                             $modification_utilisateur=mysqli_query($connect, 
-                            "UPDATE utilisateur SET util_pseudo='".$pseudo_form."', util_avatar='".$avatar_form."', util_notif='".$notif_form."', util_email='".$mail_form."', util_mdp='".$mdp2_form."' WHERE util_email='andrieux.m@live.fr';");
+                            "UPDATE utilisateur SET util_pseudo='".$pseudo_form."', util_avatar='".$avatar_form."', util_notif='".$notif_form."', util_email='".$mail_form."', util_mdp='".$mdp2_form."' WHERE util_nom='Andrieux';");
+
                             $resultat_modification=mysqli_fetch_array($modification_utilisateur);
                             if($modification_utilisateur == true){
                             echo "c'est good";
@@ -55,12 +56,10 @@
                         <div class="form-group">
                             <label for="pseudoprofil">Pseudo</label>
                             <input type="text" class="form-control" id="pseudoprofil" name="pseudo" aria-describedby="pseudoHelp" placeholder="Votre pseudo">
-                        </div>
-                        <div class="form-group">
+
                             <label for="avatarprofil">Avatar</label>
                             <input type="file" class="form-control-file" id="avatarprofil" name="avatar" accept="image/*">
-                        </div>
-                        <div class="form-group">
+
                             <label for="contribprofil">Notifications</label>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="notif" value="1" id="contribprofil" value="option1" checked>
@@ -70,25 +69,24 @@
                                 <input class="form-check-input" type="radio" name="notif" value="0"id="contribprofil2" value="option2">
                                 <label class="form-check-label" for="contribprofil2">Non</label>
                             </div>
-                        </div>
-                        <div class="form-group">
+
                             <label for="mailprofil">E-mail</label>
                             <input type="email" class="form-control" id="mailprofil" name="mail" aria-describedby="emailHelp" placeholder="Votre e-mail">
-                        </div>
-                        <div class="form-group">
+
                             <label for="mdpprofil">Ancien mot de passe</label>
                             <input type="password" class="form-control" id="mdpprofil" name="mdp1" placeholder="Votre ancien mot de passe">
-                        </div>
-                        <div class="form-group">
+
                             <label for="verifmdpprofil">Nouveau mot de passe</label>
                             <input type="password" class="form-control" id="verifmdpprofil" name="mdp2" placeholder="Votre nouveau mot de passe">
-                        </div>   
+
+
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                <button type="submit" name="validation" class="btn btn-danger">Valider</button>
+                        </div>
+
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                    <button type="submit" name="validation" class="btn btn-danger">Valider</button>
-                </div>
+
             </div>
         </div>
     </div>
@@ -111,9 +109,9 @@
 <!--________________________________Php avatar card profil_________________________________________-->
 
                     <?php
-                            $avatar_utilisateur=mysqli_query($connect, 
-                            "SELECT util_avatar FROM utilisateur WHERE util_email = 'andrieux.m@live.fr';");
-                            $resultat_avatar=mysqli_fetch_array($avatar_utilisateur);
+                        $avatar_utilisateur=mysqli_query($connect, 
+                        "SELECT util_avatar FROM utilisateur WHERE util_nom ='Andrieux';");
+                        $resultat_avatar=mysqli_fetch_array($avatar_utilisateur);
                     ?>
                         <img id="photoprofil" class="card-img-top" src="<?php echo($resultat_avatar ['util_avatar']);?>" alt="Card image cap">
                         <div class="card-body">
@@ -170,15 +168,33 @@
                     </ul>
                 </div>
 
-<!--________________________________Card commentaires_________________________________________-->
+<!--________________________________Card commentaires__________________________________-->
 
                 <div class="card mt-4 shadow">
-                    <form method="post">
-                        <div class="card-body">
+                    <div class="card-body">
+                        <form method="post" action="index_profil.php">
                             <div class="form-group">
-                                <label for="exampleFormControlTextarea1">Votre commentaire</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                <button type="submit" class="btn btn-danger">Envoyer</button>
+
+                                <?php
+                                if(isset($_POST['valider'])){
+                                    $comment_utilisateur = $_POST["comment"];
+        
+                                    $envois_commentaire=mysqli_query($connect, 
+                                    "INSERT INTO commentaire(comm_comment, comm_util_id_dest, comm_util_id_exp)
+                                    VALUES ('".$comment_utilisateur."', 1, 2);");
+        
+                                    $resultat_commentaire=mysqli_fetch_array($commentn_utilisateur);
+                                    if($comment_utilisateur == true){
+                                    echo "c'est good";
+                                    }else{
+                                        echo "pas bon";
+                                     }
+                                 }
+                                ?>
+
+                                <label for="commentutilisateur">Votre commentaire:</label>
+                                <textarea class="form-control" id="commentutilisateur" name="comment" rows="3"></textarea>
+                                <button type="submit" name="valider" class="btn btn-danger mt-1">Envoyer</button>
                             </div>
                         </div>
                     </form>
@@ -267,6 +283,9 @@
                  </div>
             </div>
     </div>
+
+<!--__________________________________________footer______________________________-->
+
 </div>          
 
     <script src="js/jquery-3.2.1.min.js"></script>
