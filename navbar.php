@@ -51,7 +51,7 @@
                     <form method="post">
                         <div class="form-group">
                             <label for="mailconnexion">E-mail</label>
-                            <input type="email" class="form-control" id="mailconnexion" name="mail" aria-describedby="emailHelp" placeholder="Votre e-mail">
+                            <input type="email" class="form-control" id="mailconnexion" name="mailconnexion" aria-describedby="emailHelp" placeholder="Votre e-mail">
                         </div>
                         <div class="form-group">
                             <label for="mdpconnexion">Mot de passe</label>
