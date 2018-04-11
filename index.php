@@ -1,62 +1,6 @@
 <?php
 $connect= mysqli_connect("localhost", "root", "Elpinus09", "pp_rodez");
 $connect->query("set names UTF8");
-
-// function requete($connect)
-// {
-//     $requete ="SELECT * FROM projet ORDER BY pro_date";
-//     $req_projets = mysqli_query($connect, $requete);
-//     return $req_projets;
-// }
-
-//Carousel 
-// function fleches_carousel($connect)
-// {
-// $res_carousel='';
-// $compteur=0;
-// $req_projets= make_query($connect);
-// while($ligne=mysqli_fetch_row($req_projets))
-// {
-//     if ($compteur == 0)
-//     {
-//         $res_carousel .= '
-//         <li data-target="#carousel_dynamique" data-slide-to="'.$compteur.'" class="active"></li>';
-//     }
-//     else
-//     {
-//         $res_carousel .= '
-//         <li data-target="#carousel_dynamique" data-slide-to="'.$compteur.'"></li> ';
-//     }
-//     $compteur = $compteur + 1;
-// }
-// return $res_carousel;
-// };
-
-// function carousel($connect)
-// {
-//     $res_carousel= '';
-//     $compteur = 0;
-//     $req_projets = make_query($connect);
-//     while ($ligne=mysqli_fetch_row($req_projets))
-//     {
-//         if($compteur==0)
-//         {
-//             $res_carousel .= '<div class="item-active">';
-//         }
-//         else
-//         {
-//             $res_carousel .= '<div class="item">';
-//         }
-//         $res_carousel .= '<img class="d-block w-100" src="'.$ligne[3].'" alt="slide 1 : correspond au projet le plus récent n°'.$compteur.'">
-//         <div class="carousel-caption">
-//             <h3>'.$ligne[1].'</h3>
-//         </div>
-//         </div>';
-//         $compteur = $compteur + 1;
-//     }
-// return $res_carousel;
-// }
-
 ?>
 
 <!DOCTYPE html>
