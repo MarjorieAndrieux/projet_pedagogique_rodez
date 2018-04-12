@@ -6,7 +6,7 @@
        <div class="modal fade" id="exampleModal0" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header bg-danger">
         <h5 class="modal-title" id="exampleModalLabel1">Projets</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -14,20 +14,53 @@
       </div>
       <div class="modal-body">
         
-         <form method="post" action="index.php">
-                        <div class="form-group">
-                            <label for="mailinscription">E-mail</label>
-                            <input type="email" class="form-control" id="mailinscription" name="mail" aria-describedby="emailHelp" placeholder="Votre e-mail">
-                        </div>
-                         <div class="form-group">
+         <form method="post">
+                        
+
+                       <div class="form-group">
                             <label for="newprojet">Nouveau Projet</label>
                             <input type="#" class="form-control" id="newprojet" name="mdp1" placeholder="Nom du projet">
                         </div>  
+                        <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">Description</span>
+  </div>
+  <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+</div>
+
+                         
+                        <div class="input-group mb-3">
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" id="inputGroupFile02">
+    <label class="custom-file-label" for="inputGroupFile02">Choisir fichier</label>
+  </div>
+  <div class="input-group-append">
+    <span class="input-group-text" id="">Upload</span>
+  </div>
+</div>
+<div class="form-group">
+                            <label for="contribprojet1">Besoin de contributeur</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="notif" value="1" id="contribprojet1" value="option1" checked>
+                                <label class="form-check-label" for="contribprojet1">Oui</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="notif" value="0"id="contribprojet" value="option2">
+                                <label class="form-check-label" for="contribprojet">Non</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+    <label for="exampleFormControlInput1">Deadline
+    </label>
+    <input type="date" class="form-control" id="deadline-projet">
+  </div>
+
+
                     </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-        <input type="button" class="btn btn-primary">Valider</button>
+        <button type="button" class="btn btn-danger">Valider</button>
       </div>
     </div>
   </div>
@@ -41,7 +74,7 @@
  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header bg-danger">
                     <h5 class="modal-title" id="exampleModalLabel">Se connecter</h5>
                     <a class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -51,7 +84,7 @@
                     <form method="post">
                         <div class="form-group">
                             <label for="mailconnexion">E-mail</label>
-                            <input type="email" class="form-control" id="mailconnexion" name="mail" aria-describedby="emailHelp" placeholder="Votre e-mail">
+                            <input type="email" class="form-control" id="mailconnexion" name="mailconnexion" aria-describedby="emailHelp" placeholder="Votre e-mail">
                         </div>
                         <div class="form-group">
                             <label for="mdpconnexion">Mot de passe</label>
@@ -65,8 +98,7 @@
                      Mot de passe oublié</button>
 
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                    <button type="submit" name="validation" class="btn btn-primary">Valider</button>
-                    </form>
+                    <button type="submit" name="validation" class="btn btn-danger">Valider</button>
                 </div>
             </div>
         </div>
@@ -79,7 +111,7 @@
 <div class="modal fade" id="mdpoublie" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header bg-danger">
         <h5 class="modal-title" id="exampleModalLabelmdp">Mot de passe oublié</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -95,7 +127,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-        <button type="button" class="btn btn-primary">Envoyer</button>
+        <button type="button" class="btn btn-danger">Envoyer</button>
       </div>
     </div>
   </div>
@@ -111,7 +143,7 @@
        <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header bg-danger">
         <h5 class="modal-title" id="exampleModalLabelinscription">Inscription</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -119,9 +151,27 @@
       </div>
       <div class="modal-body">
          <form method="post">
+             <!-- Pseudo -->
+                        <div class="form-group">
+                            <label for="pseudoconnexion">Pseudo</label>
+                            <input type="text" class="form-control" id="pseudo_connexion" name="pseudo_connexion" aria-describedby="pseudoHelp" placeholder="Votre pseudo">
+                          </div>
+
+
+                              <!-- Avatar -->
+                         <label for="avatarconnexion">Avatar</label>
+                            <div class="input-group mb-3">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="avatarconnexion" name="avatar-modifprofil">
+                                    <label class="custom-file-label" for="inputGroupFile02">Choisir fichier</label>
+                                </div>
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="avatarconnexion1">Upload</span>
+                                </div>
+                            </div>
                         <div class="form-group">
                             <label for="mailinscription1">E-mail</label>
-                            <input type="email" class="form-control" id="mailinscription1" name="mail" aria-describedby="emailHelp" placeholder="Votre e-mail">
+                            <input type="email" class="form-control" id="mailinscription1" name="mailiscription" aria-describedby="emailHelp" placeholder="Votre e-mail">
                         </div>
                         <div class="form-group">
                             <label for="mdpinscription">Mot de passe</label>
@@ -130,12 +180,26 @@
                          <div class="form-group">
                             <label for="mdpconfinscription">Confirmer mot de passe</label>
                             <input type="password" class="form-control" id="mdpconfinscription" name="mdp1" placeholder="Votre mot de passe">
-                        </div>  
+                        </div> 
+                        <div class="form-group">
+                            <label for="notification1">Notification</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="notif" value="1" id="notification1" value="option1" checked>
+                                <label class="form-check-label" for="notification1">Oui</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="notif" value="0"id="notification" value="option2">
+                                <label class="form-check-label" for="notification">Non</label>
+                            </div>
+                        </div>
+
                     </form>
+
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-        <button type="button" class="btn btn-primary">Valider</button>
+        <button type="button" class="btn btn-danger">Valider</button>
       </div>
     </div>
   </div>
@@ -163,9 +227,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Profil</a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="#">Explorer</a>
-                </li> -->
 
                 <li class="nav-item">
                     <a  class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal0">
