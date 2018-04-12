@@ -1,3 +1,5 @@
+// Partie carousel
+
 $(document).ready(function(){
     $(".owl-proj").owlCarousel(
     {
@@ -48,3 +50,7 @@ $(document).ready(function(){
         })
 });
 
+//Ajax
+$(document).ready(function(){
+    
+});
