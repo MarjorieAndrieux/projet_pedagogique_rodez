@@ -2,8 +2,11 @@
 INSERT INTO `utilisateur`(`util_nom`, `util_prenom`, `util_email`, `util_mdp`, `util_pseudo`, `util_avatar`, `util_notif`) 
 VALUES ('value-1','value-2','value-3','value-4','value-5','value-6','value-7','value-8');
 
+INSERT INTO table utilisateur(`util_nom`, `util_prenom`, `util_email`, `util_mdp`, `util_pseudo`, `util_avatar`, `util_notif`)
+VALUES ('Robet', 'Mathieu','blabla@gmail.com', 'machin001', 'Math', 'images/banana_phone.jpg', '1');
+
 /*ajout projet*/
-INSERT INTO `projet`(`pro_id`, `pro_nom`, `pro_description`, `pro_image`, `pro_deadline`, `pro_date`, `pro_statut`, `pro_util_id`)
+INSERT INTO `projet`(pro_nom, pro_description, pro_image, pro_deadline, pro_date, pro_statut, pro_util_id)
 VALUES ('value-1','value-2','value-3','value-4','value-5','value-6','value-7','value-8');
 
 /*ajout tag*/

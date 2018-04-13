@@ -3,7 +3,7 @@
     $connect = mysqli_connect("localhost", "root", "greendayÉ(&&", "pp_rodez");
     $connect->query("SET NAMES UTF8");
     
-
+    $essais_utilisateur= 'Andrieux'
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +42,7 @@
                             $mdp2_form = $_POST["verifmdp_modifprofil"];
 
                             $modification_utilisateur=mysqli_query($connect, 
-                            "UPDATE utilisateur SET util_pseudo='".$pseudo_form."', util_avatar='".$avatar_form."', util_notif='".$notif_form."', util_email='".$mail_form."', util_mdp='".$mdp2_form."' WHERE util_nom='Andrieux';");
+                            "UPDATE utilisateur SET util_pseudo='".$pseudo_form."', util_avatar='".$avatar_form."', util_notif='".$notif_form."', util_email='".$mail_form."', util_mdp='".$mdp2_form."' WHERE util_nom='".$essais_utilisateur."';");
 
                             $resultat_modification=mysqli_fetch_array($modification_utilisateur);
                             if($modification_utilisateur == true){
@@ -59,8 +59,16 @@
                             <input type="text" class="form-control" id="pseudo_modifprofil" name="pseudo_modifprofil" aria-describedby="pseudoHelp" placeholder="Votre pseudo">
 
                          <!-- Avatar -->
-                            <label for="avatarprofil">Avatar</label>
-                            <input type="file" class="form-control-file" id="avatar_modifprofil" name="avatar-modifprofil" accept="image/*">
+                         <label for="avatarprofil">Avatar</label>
+                            <div class="input-group mb-3">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="avatarprofil" name="avatar-modifprofil">
+                                    <label class="custom-file-label" for="inputGroupFile02">Choisir fichier</label>
+                                </div>
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="">Upload</span>
+                                </div>
+                            </div>
 
                          <!-- Notifications -->
                             <label for="notif_modifprofil">Notifications</label>
@@ -90,12 +98,81 @@
                             <button type="submit" name="validation" class="btn btn-danger">Valider</button>
                         </div>
 
+
+
                     </form>
                 </div>
 
             </div>
         </div>
     </div>
+
+<!--____________________________Modale: projet______________________________________________ -->
+
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modaleprojetfade">
+  Découvrir le projet
+</button>
+
+
+    <div class="modal fade" id="modaleprojetfade" tabindex="-1" role="dialog" aria-labelledby="modale_detailprojet" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-danger">
+                    <h5 class="modal-title text-white" id="modale_detailprojet">Titre projet</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+<!--____________________________Modale: Détail du projet______________________________________________ -->
+                    <div class="container-fluid">
+                        <div class="row">
+
+<!--____________________________Carte information sur le projet______________________________________________ -->
+
+                            <div class="col-md-4 col-sm-12 bg-light">
+                                <div class="card">
+
+
+                                    <img class="card-img-top" src="..." alt="Card image cap">
+                                    <div class="card-body">
+                                        <?php echo("
+                                        <h3 class='card-title'>".$resultat_projet[1]."</h3>
+                                        <h5 class='card-title'>".$resultat_projet[7]."</h5>
+                                        <p class='card-text'>".$resultat_projet[2]."</p>
+                                        <p class='card-text'>".$resultat_projet[5]."</p>
+                                        <p class='card-text'>".$resultat_projet[4]."</p>
+                                        <ul class='list-group list-group-flush'>
+                                            <li class='list-group-item'>Tags</li>
+                                        </ul>");
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>
+
+<!--____________________________Carte projet: contenu du projet______________________________________________ -->
+
+                            <div class="col-md-8 col-sm-12 bg-light">
+                                <div class="card">
+                                    <div class="card-body">
+                                        Affichage
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 <!--________________________________Barre de navigation_________________________________________-->
     <div class="container-fluid">
         <div class="row">
@@ -117,64 +194,64 @@
                     <?php
                         // Avatar
                         $avatar_utilisateur=mysqli_query($connect, 
-                        "SELECT util_avatar FROM utilisateur WHERE util_nom ='Andrieux';");
+                        "SELECT util_avatar FROM utilisateur WHERE util_nom ='".$essais_utilisateur."';");
                         $resultat_avatar=mysqli_fetch_array($avatar_utilisateur);
 
                         // Pseudo
                         $identite_utilisateur=mysqli_query($connect, 
-                        "SELECT util_pseudo FROM utilisateur WHERE util_email = 'andrieux.m@live.fr';");
+                        "SELECT util_pseudo FROM utilisateur WHERE util_nom = '".$essais_utilisateur."';");
                         $resultat_identite=mysqli_fetch_array($identite_utilisateur);
 
                         // Projet
                         $nbprojet_utilisateur=mysqli_query($connect, 
                         "SELECT COUNT(*) AS nbprojet FROM projet INNER JOIN utilisateur ON projet.pro_util_id=utilisateur.util_id
-                        WHERE util_email='andrieux.m@live.fr';");
+                        WHERE util_nom='".$essais_utilisateur."';");
                         $resultat_nbprojet=mysqli_fetch_array($nbprojet_utilisateur);
 
                         // Contribution
                         $nbcontrib_utilisateur=mysqli_query($connect,"SELECT COUNT(*) AS nbcontrib FROM contribution
                         INNER JOIN utilisateur ON contribution.contrib_util_id=utilisateur.util_id
-                        WHERE util_email='andrieux.m@live.fr';");
+                        WHERE util_nom='".$essais_utilisateur."';");
                             $resultat_nbcontrib=mysqli_fetch_array($nbcontrib_utilisateur);
                         
                         // Description
                         $description_utilisateur=mysqli_query($connect,"SELECT util_description FROM utilisateur
-                        WHERE util_email='andrieux.m@live.fr';");
+                        WHERE util_nom='".$essais_utilisateur."';");
                         $resultat_description=mysqli_fetch_array($description_utilisateur);
                     ?>
 
 <!--________________________________Carte profil: Affichage des données_________________________________________-->
                         <!-- Avatar -->
-                        <img id="photo_profil" class="card-img-top" src="<?php echo($resultat_avatar ['util_avatar']);?>" alt="Card image cap">
+                        <img id="photo_profil" class="card-img" src="<?php echo($resultat_avatar ['util_avatar']);?>" alt="Card image cap">
 
-                        <div class="card-body">
+                        <div class="card-body font-weight-bold">
                         
                         <!-- Pseudo -->
-                            <h5 class="card-title">
+                            <h3 class="card-title font-weight-bold">
                                 <?php echo($resultat_identite ['util_pseudo']);?>
-                            </h5>
+                            </h3>
 
                         <!-- Projets/contributions -->
                             <p class="card-text">
-                                <?php echo($resultat_nbprojet ['nbprojet']);?>projets, 
+                                <?php echo($resultat_nbprojet ['nbprojet']);?> projets, 
                                 <?php echo($resultat_nbcontrib ['nbcontrib']);?> contribution
                             </p>
                         </div>
                         <ul class="list-group list-group-flush align">
                         
                         <!-- Description -->
-                            <li class="list-group-item alignement">
+                            <li class="list-group-item alignement font-weight-bold">
                                 <?php echo($resultat_description ['util_description']);?>
                             </li>
 
                         <!-- Tags -->
                         <?php
                             $tag_utilisateur=mysqli_query($connect,"SELECT tag_nom FROM tag_util INNER JOIN tag ON tag_util.tag_id=tag.tag_id
-                            INNER JOIN utilisateur ON tag_util.tag_util_id=utilisateur.util_id WHERE util_nom='Andrieux';");
+                            INNER JOIN utilisateur ON tag_util.tag_util_id=utilisateur.util_id WHERE util_nom='".$essais_utilisateur."';");
                             while($resultat_tag=mysqli_fetch_array($tag_utilisateur)){
                         ?>
 
-                        <li class="list-group-item alignement">
+                        <li class="marge-list font-weight-bold">
                             <?php echo($resultat_tag ['tag_nom']);?>
                         </li>
                         <?php } ?>
@@ -215,7 +292,7 @@
 
 <!--________________________________Carte commentaire: Formulaire de commentaire_____________________-->
 
-                                <label for="comment_utilisateur">Votre commentaire:</label>
+                                <label class="font-weight-bold" for="comment_utilisateur">Votre commentaire:</label>
                                 <textarea class="form-control" id="comment_utilisateur" name="comment_utilisateur" rows="3"></textarea>
                                 <button type="submit" name="valider" class="btn btn-danger mt-1">Envoyer</button>
                             </div>
@@ -229,7 +306,7 @@
                             $commentaire_utilisateur=mysqli_query($connect, 
                             "SELECT comm_comment, util_pseudo FROM utilisateur
                             INNER JOIN commentaire ON utilisateur.util_id=commentaire.comm_util_id_dest
-                            where util_email='andrieux.m@live.fr';");
+                            where util_nom='".$essais_utilisateur."';");
                             $resultat_commentaire=mysqli_fetch_array($commentaire_utilisateur);
                         ?>
 
@@ -261,11 +338,11 @@
                         //On récupère les infos voulues (ici toutes on selectionnera celle qui nous interessent plus tard)
                             $projets_utilisateur=mysqli_query($connect, "SELECT * FROM projet
                             INNER JOIN utilisateur ON projet.pro_util_id = utilisateur.util_id
-                            WHERE util_nom = 'Andrieux';");
+                            WHERE util_nom = '".$essais_utilisateur."';");
                         //On fait un COUNT pour pouvoir récupérer un quotient sur i
                             $projets_comptage=mysqli_query($connect, "SELECT COUNT(*) AS nbprojet FROM projet 
                             INNER JOIN utilisateur ON projet.pro_util_id=utilisateur.util_id
-                            WHERE util_nom='Andrieux';");
+                            WHERE util_nom='".$essais_utilisateur."';");
                             $resultat_projets=mysqli_fetch_array($projets_comptage);
                             $i=ceil($resultat_projets[0]/4);
                         //m servira pour la dernière rangée
@@ -277,8 +354,8 @@
                             echo "<div class='row rangees_projets'>";
                             for ($j=0; $j<4 ; $j++) 
                             { 
-                            $ligne=mysqli_fetch_row($projets_utilisateur);
-                            echo "<div class='card shadow' id='projet_".$ligne[0]."'>
+                            $resultat_=mysqli_fetch_row($projets_utilisateur);
+                            echo "<div class='card shadow' data-projet='.$ligne[0].' id='projet_".$ligne[0]."'>
                             <img class='card-img-top img_projets' src='".$ligne[3]."'alt='Image décrivant le projet'>
                             <div class='card-body'>
                                 <h5 class='card-title'>".$ligne[1]."</h5>
