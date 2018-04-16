@@ -110,7 +110,7 @@ $connect->query("set names UTF8");
                     <form method="post">
                         <div class="form-group">
                             <label for="mailconnexion">E-mail</label>
-                            <input type="email" class="form-control" id="mailconnexion" name="mailconnexion" aria-describedby="emailHelp" placeholder="Votre e-mail">
+                            <input type="email" class="form-control" id="mailconnexion" name="mailconne" aria-describedby="emailHelp" placeholder="Votre e-mail">
                         </div>
                         <div class="form-group">
                             <label for="mdpconnexion">Mot de passe</label>
@@ -260,19 +260,26 @@ $connect->query("set names UTF8");
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation"><img src="images/burger.png" width="40" height="40" >
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#" id="logo"><img src="images/logo.jpg" id="logo" width="70" height="70"></a>
+        <a class="navbar-brand" href="#" id="logo">
+            <h4>Logo</h4>
+        </a>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Accueil</a>
+                    <a class="nav-link" href="index.php">Accueil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Profil</a>
+                    <a class="nav-link" href="index_profil.php">Profil</a>
+                </li>
+
+                <li class="nav-item">
+                    <a  class="nav-link" href="projets.php">
+                       Projets</a>     
                 </li>
 
                 <li class="nav-item">
                     <a  class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal0">
-                        Projets</a>     
+                       Nouveau Projet</a>     
                 </li> 
 
                       <li class="nav-item">
