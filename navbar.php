@@ -33,7 +33,7 @@ $testutilisateur='Pineiro';
   <div class="modal-dialog" role="document">
    <div class="modal-content">
     <div class="modal-header bg-danger">
-      <h5 class="modal-title" id="exampleModalLabel1">Projets</h5>
+      <h5 class="modal-title" id="exampleModalLabel1">Nouveau Projet</h5>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
       <span aria-hidden="true">&times;</span>
       </button>
@@ -255,11 +255,11 @@ $testutilisateur='Pineiro';
 
 
 <div class="container-fluid">
-    <nav class="navbar navbar-expand-lg " id="nav_bar">
+    <nav class="navbar navbar-expand-lg" id="nav_bar">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation"><img src="images/burger.png" width="40" height="40" >
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#" id="logo"><img src="images/logo.jpg" id="logo" width="70" height="70"></a>
+        <a class="navbar-brand" href="#" id="logo"><h1>LOGO</h1></a>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
@@ -269,9 +269,15 @@ $testutilisateur='Pineiro';
                     <a class="nav-link" href="#">Profil</a>
                 </li>
 
+                 <li class="nav-item">
+                    <a  class="nav-link" href="projets.php" data-toggle="modal" data-target="#exampleModal01">
+                        Projets</a>     
+                </li> 
+
+
                 <li class="nav-item">
                     <a  class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal0">
-                        Projets</a>     
+                        Nouveau Projet</a>     
                 </li> 
 
                       <li class="nav-item">
@@ -284,6 +290,7 @@ $testutilisateur='Pineiro';
                         Inscription</a>     
                 </li>
             </ul>
+
             <form class="form-inline my-2 my-lg-0" id="recherche">
                 <input class="form-control mr-sm-2" id="barre_recherche">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="btn_recherche"><img src="images/search.png" id="img_btn_recherche"></button>
