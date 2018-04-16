@@ -1,6 +1,6 @@
 // Partie carousel
 
-$(document).ready(function(){
+// $(document).ready(function(){
     $(".owl-proj").owlCarousel(
     {
         center: true,
@@ -48,9 +48,57 @@ $(document).ready(function(){
                 }
             }
         })
-});
+// });
 
 //Ajax
-$(document).ready(function(){
-    
+
+//Inscription
+// $(document).ready(function(){
+    // $("#valid_inscription").click(function(){
+    //     $.post(
+    //         "requete_inscription_navbar.php", //Fichier php qui va être éxécuté, surement a changer !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    //         {
+    //             //On récupère la valeur des inputs que l'on va passer à requetes_navbar.php
+    //             pseudo : $("#pseudoconnexion").val(),
+    //             avatar : $("#avatarconnexion").val(),
+    //             email : $("#mailinscription1").val(),
+    //             notif : $("#notif").val(),
+    //         },
+    //         function(succès){
+    //             if(succès == "Success")
+    //             {
+    //                 alert ("Vous êtes désormais inscrits");
+    //             }
+    //             else
+    //             {
+    //                 alert ("Une erreur s'est produite, veuillez réessayer")
+    //             }
+    //         },
+    //         "text"
+    //     );
+    // });
+// });
+
+
+
+var mail_co = $("#mailconnexion").val();
+var mdp_co = $("#mdpconnexion").val();
+
+//Connexion
+$(document).ready(function()
+{
+    $("#valid_connexion").click(function()
+    {
+        $.ajax(
+        {
+            url: 'requete_connexion_navbar.php',
+            method: 'POST',
+            data: {mail: mail_co, mdp: mdp_co},
+            dataType: 'html',
+            success: function(arg_bidon){
+            $("#resultat").html(arg_bidon)
+        } 
+    });
+    $("#modal_connexion").modal('hide');
+    });
 });

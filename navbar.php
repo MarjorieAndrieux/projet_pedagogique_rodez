@@ -65,73 +65,65 @@
     </div>
   </div>
 </div>  
-
-
-
                                   <!-- modal connexion -->
-
-
- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+<div class="modal fade" id="modal_connexion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form method="post">
             <div class="modal-content">
                 <div class="modal-header bg-danger">
                     <h5 class="modal-title" id="exampleModalLabel">Se connecter</h5>
                     <a class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </a>
-                </div>
-                <div class="modal-body">
-                    <form method="post">
-                        <div class="form-group">
-                            <label for="mailconnexion">E-mail</label>
-                            <input type="email" class="form-control" id="mailconnexion" name="mailconnexion" aria-describedby="emailHelp" placeholder="Votre e-mail">
-                        </div>
-                        <div class="form-group">
-                            <label for="mdpconnexion">Mot de passe</label>
-                            <input type="password" class="form-control" id="mdpconnexion" name="mdp1" placeholder="Votre mot de passe">
-                        </div>  
-                    
-                </div>
-                <div class="modal-footer">
-                   <!--  bouton mot de passe oublié dans la modal connexion-->
-                    <button type="button" class="btn" data-toggle="modal" data-dismiss="modal" data-target="#mdpoublie">
-                     Mot de passe oublié</button>
-
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                    <button type="submit" name="validation" class="btn btn-danger">Valider</button>
+                    </div>
+                    <div class="modal-body">
+                            <div class="form-group">
+                                <label for="mailconnexion">E-mail</label>
+                                <input type="email" class="form-control" id="mailconnexion" name="mailconnexion" aria-describedby="emailHelp" placeholder="Votre e-mail">
+                            </div>
+                            <div class="form-group">
+                                <label for="mdpconnexion">Mot de passe</label>
+                                <input type="password" class="form-control" id="mdpconnexion" name="mdpconnexion" aria-describedby="mdpHelp" placeholder="Votre mot de passe">
+                            </div>  
+                    </div>
+                    <div class="modal-footer">
+                        <!--  bouton mot de passe oublié dans la modal connexion-->
+                        <button type="button" class="btn" data-toggle="modal" data-dismiss="modal" data-target="#mdpoublie">
+                         Mot de passe oublié</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        <button type="button" name="validation" class="btn btn-danger" id="valid_connexion">Valider</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 
 
                     <!-- modal mot de passe oublié -->
-
-
-<div class="modal fade" id="mdpoublie" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header bg-danger">
-        <h5 class="modal-title" id="exampleModalLabelmdp">Mot de passe oublié</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-         <form method="post">
+    <div class="modal fade" id="mdpoublie" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <form method="post">
+                <div class="modal-content">
+                    <div class="modal-header bg-danger">
+                        <h5 class="modal-title" id="exampleModalLabelmdp">Mot de passe oublié</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
                         <div class="form-group">
                             <label for="mailmdp">E-mail</label>
                             <input type="email" class="form-control" id="mailmdp" name="mailmdp" aria-describedby="emailHelp" placeholder="Votre e-mail">
                         </div>
-                    </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-        <button type="button" class="btn btn-danger">Envoyer</button>
-      </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        <button type="button" class="btn btn-danger">Envoyer</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-  </div>
-</div>
 
 
 
@@ -154,7 +146,7 @@
              <!-- Pseudo -->
                         <div class="form-group">
                             <label for="pseudoconnexion">Pseudo</label>
-                            <input type="text" class="form-control" id="pseudo_connexion" name="pseudo_connexion" aria-describedby="pseudoHelp" placeholder="Votre pseudo">
+                            <input type="text" class="form-control" id="pseudoconnexion" name="pseudo_connexion" aria-describedby="pseudoHelp" placeholder="Votre pseudo">
                           </div>
 
 
@@ -199,7 +191,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-        <button type="button" class="btn btn-danger">Valider</button>
+        <button type="button" class="btn btn-danger" id="valid_inscription">Valider</button>
       </div>
     </div>
   </div>
@@ -234,7 +226,7 @@
                 </li> 
 
                       <li class="nav-item">
-                    <a  class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal">
+                    <a  class="nav-link" href="#" data-toggle="modal" data-target="#modal_connexion">
                         Connexion</a>     
                 </li> 
 

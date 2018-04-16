@@ -24,7 +24,8 @@ $connect->query("set names UTF8");
         </div>
         <div class="row">
             <div class="col-md-6 col-xs-12 projets" id="projets_alea">
-                <?php echo $_COOKIE['cookie_mail']; ?>
+                <div id=resultat>
+                </div>
                 <!-- Cette partie affichera les projet terminés aléatoirement (sans tags impliqués dans leur    affichage) -->
                 <!-- <h3 class="center">Derniers projets postés</h3> -->
                 <?php //$req_projets=mysqli_query($connect, "SELECT * FROM projet ORDER BY pro_date LIMIT 10");
@@ -78,7 +79,7 @@ $connect->query("set names UTF8");
         </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="js/jquery-3.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="js/jquery.fullpage.min.js"></script>
