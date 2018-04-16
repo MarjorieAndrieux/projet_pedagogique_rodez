@@ -1,8 +1,8 @@
 <?php
     session_start();
-    $connect = mysqli_connect("localhost", "root", "Elpinus09", "pp_rodez");
+    $connect = mysqli_connect("localhost", "root", "greendayÉ(&&", "pp_rodez");
     $connect->query("SET NAMES UTF8");
-    
+    $testuser='andrieux.m@live.fr';
 
 ?>
 
@@ -42,7 +42,7 @@
                             $mdp2_form = $_POST["mdp2"];
 
                             $modification_utilisateur=mysqli_query($connect, 
-                            "UPDATE utilisateur SET util_pseudo='".$pseudo_form."', util_avatar='".$avatar_form."', util_notif='".$notif_form."', util_email='".$mail_form."', util_mdp='".$mdp2_form."' WHERE util_nom='Andrieux';");
+                            "UPDATE utilisateur SET util_pseudo='".$pseudo_form."', util_avatar='".$avatar_form."', util_notif='".$notif_form."', util_email='".$mail_form."', util_mdp='".$mdp2_form."' WHERE util_mail='".$testuser."';");
 
                             $resultat_modification=mysqli_fetch_array($modification_utilisateur);
                             if($modification_utilisateur == true){
@@ -110,7 +110,7 @@
 
                     <?php
                         $avatar_utilisateur=mysqli_query($connect, 
-                        "SELECT util_avatar FROM utilisateur WHERE util_nom ='Andrieux';");
+                        "SELECT util_avatar FROM utilisateur WHERE util_mail ='".$testuser."';");
                         $resultat_avatar=mysqli_fetch_array($avatar_utilisateur);
                     ?>
                         <img id="photoprofil" class="card-img-top" src="<?php echo($resultat_avatar ['util_avatar']);?>" alt="Card image cap">
@@ -120,21 +120,21 @@
 
                         <?php
                             $identite_utilisateur=mysqli_query($connect, 
-                            "SELECT util_nom, util_prenom FROM utilisateur WHERE util_email = 'andrieux.m@live.fr';");
+                            "SELECT util_nom, util_prenom FROM utilisateur WHERE util_email = '".$testuser."';");
                             $resultat_identite=mysqli_fetch_array($identite_utilisateur);
 
                             $nbprojet_utilisateur=mysqli_query($connect, 
                             "SELECT COUNT(*) AS nbprojet FROM projet INNER JOIN utilisateur ON projet.pro_util_id=utilisateur.util_id
-                            WHERE util_email='andrieux.m@live.fr';");
+                            WHERE util_email='".$testuser."';");
                             $resultat_nbprojet=mysqli_fetch_array($nbprojet_utilisateur);
 
                             $nbcontrib_utilisateur=mysqli_query($connect,"SELECT COUNT(*) AS nbcontrib FROM contribution
                             INNER JOIN utilisateur ON contribution.contrib_util_id=utilisateur.util_id
-                            WHERE util_email='andrieux.m@live.fr';");
+                            WHERE util_email='".$testuser."';");
                             $resultat_nbcontrib=mysqli_fetch_array($nbcontrib_utilisateur);
                             
                             $description_utilisateur=mysqli_query($connect,"SELECT util_description FROM utilisateur
-                            WHERE util_email='andrieux.m@live.fr';");
+                            WHERE util_email='".$testuser."';");
                             $resultat_description=mysqli_fetch_array($description_utilisateur);
                         ?>
 
@@ -151,7 +151,7 @@
 
                         <?php
                             $tag_utilisateur=mysqli_query($connect,"SELECT tag_nom FROM tag_util INNER JOIN tag ON tag_util.tag_id=tag.tag_id
-                            INNER JOIN utilisateur ON tag_util.tag_util_id=utilisateur.util_id WHERE util_nom='Andrieux';");
+                            INNER JOIN utilisateur ON tag_util.tag_util_id=utilisateur.util_id WHERE util_mail='".$testuser."';");
                             while($resultat_tag=mysqli_fetch_array($tag_utilisateur)){
                         ?>
 
@@ -204,7 +204,7 @@
                             $commentaire_utilisateur=mysqli_query($connect, 
                             "SELECT comm_comment, util_pseudo FROM utilisateur
                             INNER JOIN commentaire ON utilisateur.util_id=commentaire.comm_util_id_dest
-                            where util_email='andrieux.m@live.fr';");
+                            where util_email='".$testuser."';");
                             $resultat_commentaire=mysqli_fetch_array($commentaire_utilisateur);
                         ?>
                         <li class="list-group-item">

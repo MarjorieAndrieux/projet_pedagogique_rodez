@@ -47,12 +47,12 @@ body, html
 /* -----------------------------------------------Navbar----------------------------------------------- */
 
 #nav_bar {
-     background:  #000;
+     background:  #dc3545;
      height: 16vh;
 } 
 
 #navbarTogglerDemo03 {
-	background: #000;
+	background: #dc3545;
 }
 
 #recherche {
@@ -77,7 +77,7 @@ body, html
 #navbarTogglerDemo03
 {
 	z-index: 2;
-	background: #000
+	background: #dc3545
 }
 
 /* --------------------------------------Projets-------------------------------------------------- */
@@ -123,7 +123,7 @@ body, html
 .footer {
     width: 100%;
     height: 60px;
-    background: #000000;
+    background: #dc3545;
 }
 #lien_footer{
 
