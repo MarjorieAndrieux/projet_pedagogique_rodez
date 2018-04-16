@@ -24,18 +24,21 @@ $connect->query("set names UTF8");
         </div>
         <div class="row">
             <div class="col-md-6 col-xs-12 projets" id="projets_alea">
+                <!-- div resultat : div test pour mise en place cookie -->
+                <!-- <div id=resultat> -->
+                <!-- </div> -->
                 <!-- Cette partie affichera les projet terminés aléatoirement (sans tags impliqués dans leur    affichage) -->
                 <h3 class="center">Derniers projets postés</h3>
-                <?php $req_projets=mysqli_query($connect, "SELECT * FROM projet ORDER BY pro_date LIMIT 10");
+                <?php $req_projets=mysqli_query($connect, "SELECT * FROM projet ORDER BY pro_date LIMIT 10"); 
                 ?>
-                <div class="owl-carousel owl-proj owl-theme">
-                    <?php  while($ligne=mysqli_fetch_row($req_projets))
+                <div class="owl-carousel owl-proj owl-theme"> 
+                <?php  while($ligne=mysqli_fetch_row($req_projets))
                     {
                         echo '
                         <div> <img src="'.$ligne[3].'" class="img_owl"> <h3>'.$ligne[1].'</h3> </div>';
                     }
                     ?>
-                </div>
+                 </div> 
             </div>
             <div class="col-md-6 col-xs-12 projets" id="projets_tags">
                 <!-- Cette partie affichera les projets terminés correspondant aux tags de l'utilisateur connecté -->
@@ -77,7 +80,7 @@ $connect->query("set names UTF8");
         </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="js/jquery-3.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="js/jquery.fullpage.min.js"></script>

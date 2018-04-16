@@ -127,7 +127,7 @@ $connect->query("set names UTF8");
                     <button type="submit" name="validation" class="btn btn-danger">Valider</button>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 
 
@@ -198,13 +198,8 @@ $connect->query("set names UTF8");
             <form method="post" action="index.php" >
              <!-- Pseudo -->
                         <div class="form-group">
-                            <label for="pseudoinscription">Pseudo</label>
                             <input type="text" class="form-control" id="pseudo_inscription" name="pseudo_inscription" aria-describedby="pseudoHelp" placeholder="Votre pseudo">
                           </div>
-
-                              <!-- Avatar -->
-                         <label for="avatarinscription">Avatar</label>
-                            <div class="input-group mb-3">
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" id="avatarinscription" name="avatar-inscription">
                                     <label class="custom-file-label" for="inputGroupFile02">Choisir fichier</label>
@@ -240,7 +235,7 @@ $connect->query("set names UTF8");
        
       
  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-        <button type="submit" name="valider_inscription" class="btn btn-danger">Valider</button>
+        <button type="button" name="valider_inscription" class="btn btn-danger">Valider</button>
         </div>
                     </form>
 
@@ -283,7 +278,7 @@ $connect->query("set names UTF8");
                 </li> 
 
                       <li class="nav-item">
-                    <a  class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal">
+                    <a  class="nav-link" href="#" data-toggle="modal" data-target="#modal_connexion">
                         Connexion</a>     
                 </li> 
 
