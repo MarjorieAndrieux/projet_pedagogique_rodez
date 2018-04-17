@@ -5,7 +5,7 @@ $connect->query("set names UTF8");
 // $testutilisateur='Pineiro';
 ?>
 
-<!--  modal Projets  -->
+<!--___________________________________modal Projets _______________________________________ -->
 
     <?php
         if(isset($_POST["valider_projet"])){
@@ -35,7 +35,7 @@ $connect->query("set names UTF8");
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-danger">
-                    <h5 class="modal-title text-white" id="exampleModalLabel1">Projets</h5>
+                    <h5 class="modal-title text-white" id="exampleModalLabel1">Nouveau projet</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -97,7 +97,7 @@ $connect->query("set names UTF8");
                                   <!-- modal connexion -->
 
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal_connexion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-danger">
@@ -106,28 +106,32 @@ $connect->query("set names UTF8");
                         <span aria-hidden="true">&times;</span>
                     </a>
                 </div>
-                <div class="modal-body">
-                    <form method="post">
+                <form method="post">
+                    <div class="modal-body">
+
+                        <!-- Email -->
                         <div class="form-group">
                             <label for="mailconnexion">E-mail</label>
                             <input type="email" class="form-control" id="mailconnexion" name="mailconne" aria-describedby="emailHelp" placeholder="Votre e-mail">
                         </div>
+
+                        <!-- Mot de passe -->
                         <div class="form-group">
                             <label for="mdpconnexion">Mot de passe</label>
                             <input type="password" class="form-control" id="mdpconnexion" name="mdp1" placeholder="Votre mot de passe">
                         </div>  
-                    </form>
-                </div>
-                <div class="modal-footer">
-                   <!--  bouton mot de passe oublié dans la modal connexion-->
-                    <button type="button" class="btn" data-toggle="modal" data-dismiss="modal" data-target="#mdpoublie">
-                     Mot de passe oublié</button>
+                    </div>
 
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                    <button type="submit" name="validation" class="btn btn-danger">Valider</button>
-                </div>
-            </div>
-        </form>
+                    <!-- Boutons -->
+                    <div class="modal-footer">
+                   <!--  bouton mot de passe oublié dans la modal connexion-->
+                        <button type="button" class="btn" data-toggle="modal" data-dismiss="modal" data-target="#mdpoublie">Mot de passe oublié</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        <button type="submit" name="validation" class="btn btn-danger">Valider</button>
+                    </div>
+                </form>
+            </div>   
+        </div>
     </div>
 
 
@@ -138,7 +142,7 @@ $connect->query("set names UTF8");
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-danger">
-                    <h5 class="modal-title" id="exampleModalLabelmdp">Mot de passe oublié</h5>
+                    <h5 class="modal-title text-white" id="exampleModalLabelmdp">Mot de passe oublié</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -195,31 +199,41 @@ $connect->query("set names UTF8");
                     </button>
                 </div>
                 <div class="modal-body">
-            <form method="post" action="index.php" >
-             <!-- Pseudo -->
+                    <form method="post" action="index.php" >
+
+                        <!-- Pseudo -->
                         <div class="form-group">
                             <input type="text" class="form-control" id="pseudo_inscription" name="pseudo_inscription" aria-describedby="pseudoHelp" placeholder="Votre pseudo">
-                          </div>
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="avatarinscription" name="avatar-inscription">
-                                    <label class="custom-file-label" for="inputGroupFile02">Choisir fichier</label>
-                                </div>
-                                <div class="input-group-append">
-                                    <span class="input-group-text" id="avatarinscription1">Upload</span>
-                                </div>
-                            </div>
+                        </div>
+
+                        <!-- Fichiers -->
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="avatarinscription" name="avatar-inscription">
+                            <label class="custom-file-label" for="inputGroupFile02">Choisir fichier</label>
+                        </div>
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="avatarinscription1">Upload</span>
+                        </div>
+
+                        <!-- Email -->
                         <div class="form-group">
                             <label for="mailinscription1">E-mail</label>
                             <input type="email" class="form-control" id="mailinscription1" name="mailinscription" aria-describedby="emailHelp" placeholder="Votre e-mail">
                         </div>
+
+                        <!-- Mot de passe -->
                         <div class="form-group">
                             <label for="mdpinscription">Mot de passe</label>
                             <input type="password" class="form-control" id="mdpinscription" name="mdp1" placeholder="Votre mot de passe">
-                        </div>  
-                         <div class="form-group">
+                        </div> 
+
+                        <!-- Confirmation mot de passe -->
+                        <div class="form-group">
                             <label for="mdpconfinscription">Confirmer mot de passe</label>
                             <input type="password" class="form-control" id="mdpconfinscription" name="mdp2" placeholder="Votre mot de passe">
                         </div> 
+
+                        <!-- Notification -->
                         <div class="form-group">
                             <label for="notification1">Notification</label>
                             <div class="form-check">
@@ -231,23 +245,20 @@ $connect->query("set names UTF8");
                                 <label class="form-check-label" for="notification">Non</label>
                             </div>
                         </div>
+
+                        <!-- Boutons -->
                         <div class="modal-footer">
-       
-      
- <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-        <button type="button" name="valider_inscription" class="btn btn-danger">Valider</button>
-        </div>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                            <button type="button" name="valider_inscription" class="btn btn-danger">Valider</button>
+                        </div>
                     </form>
+                </div> 
+            </div>
+        </div>
+    </div>                      
 
 
-      </div>
-      
-    </div>
-  </div>
-</div>                      
-
-
-                                   <!-- nav bar  -->
+<!-- ____________________________________nav bar______________________________  -->
 
 
 <div class="container-fluid">
@@ -255,42 +266,53 @@ $connect->query("set names UTF8");
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation"><img src="images/burger.png" width="40" height="40" >
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#" id="logo">
-            <h4>Logo</h4>
+
+        <!-- Logo -->
+        <a class="navbar-brand text-white" href="index.php" id="logo">
+            <img src="images/logosite.png">
         </a>
+
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.php">Accueil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index_profil.php">Profil</a>
+
+                <!-- Accueil -->
+                <li class="nav-item active ml-2 mr-4">
+                    <a class="nav-link text-white text-uppercase" href="index.php">Accueil</a>
                 </li>
 
-                <li class="nav-item">
-                    <a  class="nav-link" href="projets.php">
+                <!-- Profil -->
+                <li class="nav-item mr-4 ">
+                    <a class="nav-link text-white text-uppercase " href="index_profil.php">Profil</a>
+                </li>
+
+                <!-- Projets -->
+                <li class="nav-item mr-4">
+                    <a  class="nav-link text-white text-uppercase" href="projets.php">
                        Projets</a>     
                 </li>
  
-                <li class="nav-item">
-                    <a  class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal0">
+                <!-- Nouveau projet -->
+                <li class="nav-item mr-4">
+                    <a  class="nav-link text-white text-uppercase" href="#" data-toggle="modal" data-target="#exampleModal0">
                        Nouveau Projet</a>     
                 </li> 
 
-                      <li class="nav-item">
-                    <a  class="nav-link" href="#" data-toggle="modal" data-target="#modal_connexion">
+                <!-- Connexion -->
+                <li class="nav-item mr-4">
+                    <a  class="nav-link text-white text-uppercase" href="#" data-toggle="modal" data-target="#modal_connexion">
                         Connexion</a>     
                 </li> 
 
-                <li class="nav-item">
-                    <a  class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal1">
+                <!-- Inscription -->
+                <li class="nav-item mr-4">
+                    <a  class="nav-link text-white text-uppercase" href="#" data-toggle="modal" data-target="#exampleModal1">
                         Inscription</a>     
                 </li>
             </ul>
 
             <form class="form-inline my-2 my-lg-0" id="recherche">
                 <input class="form-control mr-sm-2" id="barre_recherche">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="btn_recherche"><img src="images/search.png" id="img_btn_recherche"></button>
+                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit" id="btn_recherche"><img src="images/search.png" id="img_btn_recherche"></button>
             </form>
         </div>
     </nav>

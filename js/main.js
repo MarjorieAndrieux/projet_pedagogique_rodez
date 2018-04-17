@@ -12,6 +12,7 @@
         lazyLoad:true,
         autoplay:true,
         autoplayHoverPause:true,
+        dots:false,
         responsive:{
             0:{
                 items:1
@@ -36,6 +37,7 @@
             lazyLoad:true,
             autoplay:true,
             autoplayHoverPause:true,
+            dots:false,
             responsive:{
                 0:{
                     items:1
@@ -47,7 +49,7 @@
                     items:5
                 }
             }
-        })
+        });
 // });
 
 //Ajax

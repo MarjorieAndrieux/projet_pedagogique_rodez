@@ -2,7 +2,6 @@
     session_start();
     $connect = mysqli_connect("localhost", "root", "greendayÉ(&&", "pp_rodez");
     $connect->query("SET NAMES UTF8");
-    
     $testuser= 'andrieux.m@live.fr';
 ?>
 
@@ -97,22 +96,18 @@
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
                             <button type="submit" name="validation" class="btn btn-danger">Valider</button>
                         </div>
-
-
-
                     </form>
                 </div>
-
             </div>
         </div>
     </div>
 
 <!--____________________________Modale: projet______________________________________________ -->
 
-    <!-- Button trigger modal -->
-<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modaleprojetfade">
-  Découvrir le projet
-</button>
+    <!-- Bouton modale projet -->
+    <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modaleprojetfade"> -->
+        <!-- Découvrir le projet -->
+    <!-- </button> -->
 
 
     <div class="modal fade" id="modaleprojetfade" tabindex="-1" role="dialog" aria-labelledby="modale_detailprojet" aria-hidden="true">
@@ -134,8 +129,6 @@
 
                             <div class="col-md-4 col-sm-12 bg-light">
                                 <div class="card">
-
-
                                     <img class="card-img-top" src="..." alt="Card image cap">
                                     <div class="card-body">
                                         <?php echo("
@@ -174,17 +167,18 @@
 
 
 <!--________________________________Barre de navigation_________________________________________-->
-    <div class="container-fluid">
-        <div class="row">
-            <?php include("navbar.php") ?>
+    <div class="container-fluid bg-danger">
+        <div class="row cont_navbar">
+            <?php include("navbar.php");?>
         </div>
+    </div>
 
 
 <!--________________________________Carte profil_________________________________________-->
 
 
 
-    <div id="global" class="container-fluid">
+    <div id="global" class="container-fluid bg-light">
             <div class="row">
                 <div class="col-md-4 col-sm-12 bg-light">
                     <div id="profil" class="card mt-4 shadow">

@@ -11,15 +11,23 @@ $connect->query("set names UTF8");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Projets</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
 </head>
 <body>
-<div class="container-fluid">
+
+<!-- _______________________Navbar______________________________________________________________ -->
+<div class="container-fluid bg-danger">
     <div class="row">
         <?php include("navbar.php") ?>
     </div>
+</div>
+
+<!-- _______________________Affichage des projets________________________________________________ -->
+<div class="container-fluid bg-light">
     <div class="row">
+
+<!-- ________________________Carte des projets ____________________________________________________-->
         <div class='card'> 
             <div class='card-body'> 
                 <div class='card-deck card-marge'>
@@ -86,9 +94,8 @@ $connect->query("set names UTF8");
     <div class="row">
         <?php include("footer.php") ?>
     </div>
-
-    
 </div>
+
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
