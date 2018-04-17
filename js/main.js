@@ -81,18 +81,22 @@
 
 
 
-var mail_co = $("#mailconnexion").val();
-var mdp_co = $("#mdpconnexion").val();
+
+
+// console.log(mdp_co);
 
 //Connexion
 $(document).ready(function()
 {
     $("#valid_connexion").click(function()
     {
+        var mail_co = $("#mailconnexion").val();
+        var mdp_co = $("#mdpconnexion").val();
         $.ajax(
         {
             url: 'requete_connexion_navbar.php',
             method: 'POST',
+            async: true,
             data: {mail: mail_co, mdp: mdp_co},
             dataType: 'html',
             success: function(arg_bidon){

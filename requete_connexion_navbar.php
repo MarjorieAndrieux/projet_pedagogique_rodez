@@ -8,12 +8,10 @@ $mdp=$_POST['mdp'];
 var_dump($mail);
 var_dump($mdp);
 
-$requete_cookie = mysqli_query("SELECT util_id,util_email,util_mdp,util_pseudo FROM `utilisateur` WHERE util_email = '".$mail."' ");
-$result_cookie = mysqli_fetch_row($requete_cookie);
-$mailconnexion = $result_cookie[1];
-$mdpconnexion = $result_cookie[2];
+$requete_cookie = mysqli_query($connect, "SELECT util_id,util_email,util_mdp,util_pseudo FROM utilisateur");
+$result_cookie = mysqli_fetch_array($requete_cookie);
 
-var_dump($requete_cookie);
+var_dump($result_cookie);
 
 if(isset($_POST['mail']) && isset($_POST['mdp']) )
 {   

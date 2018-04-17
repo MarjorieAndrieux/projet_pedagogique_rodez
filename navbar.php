@@ -1,4 +1,7 @@
-                          
+<?php
+$connect= mysqli_connect("localhost", "root", "Elpinus09", "pp_rodez");
+$connect->query("set names UTF8");
+?>                          
 
                            <!--  modal Projets  -->
 
@@ -83,7 +86,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="mdpconnexion">Mot de passe</label>
-                                <input type="password" class="form-control" id="mdpconnexion" name="mdpconnexion" aria-describedby="mdpHelp" placeholder="Votre mot de passe">
+                                <input type="text" class="form-control" id="mdpconnexion" name="mdpconnexion" aria-describedby="mdpHelp" placeholder="Votre mot de passe">
                             </div>  
                     </div>
                     <div class="modal-footer">
