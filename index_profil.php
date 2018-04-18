@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $connect = mysqli_connect("localhost", "root", "greendayÉ(&&", "pp_rodez");
+    $connect = mysqli_connect("localhost", "root", "Elpinus09", "pp_rodez");
     $connect->query("SET NAMES UTF8");
     $testuser= 'andrieux.m@live.fr';
 ?>

@@ -1,7 +1,5 @@
-<?php
-$connect= mysqli_connect("localhost", "root", "greendayÉ(&&", "pp_rodez");
-$connect->query("set names UTF8");
-?>
+<?php $connect= mysqli_connect("localhost", "root", "Elpinus09", "pp_rodez");
+$connect->query("set names UTF8"); ?>
 
 <!DOCTYPE html>
 <html>
