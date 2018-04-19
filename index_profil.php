@@ -1,7 +1,6 @@
 <?php
     session_start();
-    $connect = mysqli_connect("localhost", "root", "Elpinus09", "pp_rodez");
-    $connect->query("SET NAMES UTF8");
+    include("connexion_bdd.php");
     $testuser= 'andrieux.m@live.fr';
 ?>
 
