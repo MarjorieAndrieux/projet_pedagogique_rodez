@@ -1,7 +1,6 @@
                           
 <?php
-$connect= mysqli_connect("localhost", "root", "greendayÉ(&&", "pp_rodez");
-$connect->query("set names UTF8");
+include("connexion_bdd.php");
 // $testutilisateur='Pineiro';
 ?>
 
